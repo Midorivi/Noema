@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { PageWrapper } from "@/components/layout/PageWrapper";
@@ -11,9 +12,18 @@ import { GetInvolved } from "@/pages/GetInvolved";
 import { Contact } from "@/pages/Contact";
 import { NotFound } from "@/pages/NotFound";
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
 export function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className="flex min-h-screen flex-col">
         <Header />
         <PageWrapper>

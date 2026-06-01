@@ -7,92 +7,57 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Check } from "lucide-react";
 
-const interestOptions = [
-  "Event Support", "Community Outreach", "Administrative Support",
-  "Media & Photography", "Social Media", "Fundraising", "Hospitality", "Other",
-];
+const interestOptions = ["Event Support", "Community Outreach", "Administrative Support", "Media & Photography", "Social Media", "Fundraising", "Hospitality", "Other"];
 const availabilityOptions = ["Weekdays", "Weekends", "Special Events Only"];
 
 export function VolunteerForm() {
   const [submitted, setSubmitted] = useState(false);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setSubmitted(true);
-  }
+  function handleSubmit(e: FormEvent<HTMLFormElement>) { e.preventDefault(); setSubmitted(true); }
 
   if (submitted) {
     return (
-      <div className="flex flex-col items-center py-12 text-center">
-        <Check className="mb-4 h-12 w-12" />
+      <div className="flex flex-col items-center py-16 text-center">
+        <Check className="mb-4 h-10 w-10 text-white/60" />
         <p className="text-lg font-medium">Thank you!</p>
-        <p className="text-muted-foreground">Your application has been submitted. We&apos;ll be in touch soon.</p>
+        <p className="text-sm text-white/50">Your application has been submitted. We&apos;ll be in touch soon.</p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
-      <p className="text-sm text-muted-foreground">
-        Thank you for your willingness to serve. Volunteers play an important role
-        in supporting our programs, events, and community outreach activities.
-      </p>
-
-      <div className="grid gap-4 sm:grid-cols-2">
-        <div>
-          <Label htmlFor="v-first">First Name</Label>
-          <Input id="v-first" required className="mt-1.5" />
-        </div>
-        <div>
-          <Label htmlFor="v-last">Last Name</Label>
-          <Input id="v-last" required className="mt-1.5" />
-        </div>
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <p className="text-sm text-white/40">Volunteers play an important role in supporting our programs, events, and community outreach activities.</p>
+      <div className="grid gap-6 sm:grid-cols-2">
+        <div><Label htmlFor="v-first" className="text-white/60">First Name</Label><Input id="v-first" required className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
+        <div><Label htmlFor="v-last" className="text-white/60">Last Name</Label><Input id="v-last" required className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
       </div>
-      <div className="grid gap-4 sm:grid-cols-2">
-        <div>
-          <Label htmlFor="v-email">Email Address</Label>
-          <Input id="v-email" type="email" required className="mt-1.5" />
-        </div>
-        <div>
-          <Label htmlFor="v-phone">Phone Number</Label>
-          <Input id="v-phone" type="tel" required className="mt-1.5" />
-        </div>
+      <div className="grid gap-6 sm:grid-cols-2">
+        <div><Label htmlFor="v-email" className="text-white/60">Email</Label><Input id="v-email" type="email" required className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
+        <div><Label htmlFor="v-phone" className="text-white/60">Phone</Label><Input id="v-phone" type="tel" required className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
       </div>
-      <div>
-        <Label htmlFor="v-location">Location</Label>
-        <Input id="v-location" className="mt-1.5" />
-      </div>
-
+      <div><Label htmlFor="v-loc" className="text-white/60">Location</Label><Input id="v-loc" className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
       <fieldset>
-        <legend className="mb-3 text-sm font-medium">Areas of Interest</legend>
+        <legend className="mb-4 text-sm font-medium text-white/60">Areas of Interest</legend>
         <div className="grid gap-3 sm:grid-cols-2">
-          {interestOptions.map((option) => (
-            <div key={option} className="flex items-center gap-3">
-              <Checkbox id={`v-int-${option}`} />
-              <Label htmlFor={`v-int-${option}`} className="font-normal">{option}</Label>
+          {interestOptions.map((opt) => (
+            <div key={opt} className="flex items-center gap-3">
+              <Checkbox id={`v-i-${opt}`} className="border-white/30" />
+              <Label htmlFor={`v-i-${opt}`} className="font-normal text-white/50">{opt}</Label>
             </div>
           ))}
         </div>
       </fieldset>
-
       <div>
-        <Label htmlFor="v-avail">Availability</Label>
-        <select id="v-avail" required className="mt-1.5 flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm">
-          <option value="">Select availability</option>
-          {availabilityOptions.map((opt) => <option key={opt} value={opt}>{opt}</option>)}
+        <Label htmlFor="v-avail" className="text-white/60">Availability</Label>
+        <select id="v-avail" required className="mt-2 flex h-10 w-full rounded-none border border-white/20 bg-transparent px-3 py-2 text-sm text-white outline-none focus:border-white">
+          <option value="" className="bg-black">Select</option>
+          {availabilityOptions.map((opt) => <option key={opt} value={opt} className="bg-black">{opt}</option>)}
         </select>
       </div>
-
-      <div>
-        <Label htmlFor="v-why">Why would you like to volunteer with NOEMA Ensemble?</Label>
-        <Textarea id="v-why" rows={3} className="mt-1.5" />
-      </div>
-      <div>
-        <Label htmlFor="v-exp">Any relevant experience or skills?</Label>
-        <Textarea id="v-exp" rows={3} className="mt-1.5" />
-      </div>
-
-      <Button type="submit" size="lg" className="w-full">Submit Application</Button>
+      <div><Label htmlFor="v-why" className="text-white/60">Why volunteer with us?</Label><Textarea id="v-why" rows={3} className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
+      <div><Label htmlFor="v-exp" className="text-white/60">Relevant experience or skills?</Label><Textarea id="v-exp" rows={3} className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
+      <Button type="submit" size="lg" className="w-full rounded-none border border-white bg-white text-xs font-medium tracking-widest uppercase text-black hover:bg-transparent hover:text-white transition-all duration-300">Submit Application</Button>
     </form>
   );
 }

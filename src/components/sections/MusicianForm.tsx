@@ -8,119 +8,65 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Check } from "lucide-react";
 
 const locationOptions = ["CA", "NY", "Korea", "Other"];
-const participationOptions = [
-  "Performance", "Community Outreach", "Music Education Programs",
-  "Music Ministry", "Special Events",
-];
+const participationOptions = ["Performance", "Community Outreach", "Music Education Programs", "Music Ministry", "Special Events"];
 
 export function MusicianForm() {
   const [submitted, setSubmitted] = useState(false);
   const [location, setLocation] = useState("");
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setSubmitted(true);
-  }
+  function handleSubmit(e: FormEvent<HTMLFormElement>) { e.preventDefault(); setSubmitted(true); }
 
   if (submitted) {
     return (
-      <div className="flex flex-col items-center py-12 text-center">
-        <Check className="mb-4 h-12 w-12" />
+      <div className="flex flex-col items-center py-16 text-center">
+        <Check className="mb-4 h-10 w-10 text-white/60" />
         <p className="text-lg font-medium">Thank you!</p>
-        <p className="text-muted-foreground">Your application has been submitted. We&apos;ll be in touch soon.</p>
+        <p className="text-sm text-white/50">Your application has been submitted. We&apos;ll be in touch soon.</p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5">
-      <p className="text-sm text-muted-foreground">
-        Thank you for your interest in joining NOEMA Ensemble. We welcome both music
-        majors and non-music majors who share a passion for music, service, and community.
-      </p>
-
-      <div className="grid gap-4 sm:grid-cols-2">
-        <div>
-          <Label htmlFor="m-first">First Name</Label>
-          <Input id="m-first" required className="mt-1.5" />
-        </div>
-        <div>
-          <Label htmlFor="m-last">Last Name</Label>
-          <Input id="m-last" required className="mt-1.5" />
-        </div>
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <p className="text-sm text-white/40">We welcome both music majors and non-music majors who share a passion for music, service, and community.</p>
+      <div className="grid gap-6 sm:grid-cols-2">
+        <div><Label htmlFor="m-first" className="text-white/60">First Name</Label><Input id="m-first" required className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
+        <div><Label htmlFor="m-last" className="text-white/60">Last Name</Label><Input id="m-last" required className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
       </div>
-      <div className="grid gap-4 sm:grid-cols-2">
-        <div>
-          <Label htmlFor="m-email">Email Address</Label>
-          <Input id="m-email" type="email" required className="mt-1.5" />
-        </div>
-        <div>
-          <Label htmlFor="m-phone">Phone Number</Label>
-          <Input id="m-phone" type="tel" required className="mt-1.5" />
-        </div>
+      <div className="grid gap-6 sm:grid-cols-2">
+        <div><Label htmlFor="m-email" className="text-white/60">Email</Label><Input id="m-email" type="email" required className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
+        <div><Label htmlFor="m-phone" className="text-white/60">Phone</Label><Input id="m-phone" type="tel" required className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
       </div>
       <div>
-        <Label htmlFor="m-location">Location</Label>
-        <select
-          id="m-location"
-          required
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
-          className="mt-1.5 flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
-        >
-          <option value="">Select location</option>
-          {locationOptions.map((opt) => <option key={opt} value={opt}>{opt}</option>)}
+        <Label htmlFor="m-loc" className="text-white/60">Location</Label>
+        <select id="m-loc" required value={location} onChange={(e) => setLocation(e.target.value)} className="mt-2 flex h-10 w-full rounded-none border border-white/20 bg-transparent px-3 py-2 text-sm text-white outline-none focus:border-white">
+          <option value="" className="bg-black">Select</option>
+          {locationOptions.map((opt) => <option key={opt} value={opt} className="bg-black">{opt}</option>)}
         </select>
       </div>
-      {location === "Other" && (
-        <div>
-          <Label htmlFor="m-location-other">Specify Location</Label>
-          <Input id="m-location-other" required className="mt-1.5" />
-        </div>
-      )}
-      <div className="grid gap-4 sm:grid-cols-2">
-        <div>
-          <Label htmlFor="m-primary">Primary Instrument</Label>
-          <Input id="m-primary" required className="mt-1.5" />
-        </div>
-        <div>
-          <Label htmlFor="m-secondary">Secondary Instrument (optional)</Label>
-          <Input id="m-secondary" className="mt-1.5" />
-        </div>
+      {location === "Other" && <div><Label htmlFor="m-loc-other" className="text-white/60">Specify</Label><Input id="m-loc-other" required className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>}
+      <div className="grid gap-6 sm:grid-cols-2">
+        <div><Label htmlFor="m-primary" className="text-white/60">Primary Instrument</Label><Input id="m-primary" required className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
+        <div><Label htmlFor="m-secondary" className="text-white/60">Secondary Instrument</Label><Input id="m-secondary" className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
       </div>
-      <div className="grid gap-4 sm:grid-cols-2">
-        <div>
-          <Label htmlFor="m-years">Years of Musical Experience</Label>
-          <Input id="m-years" type="number" min="0" className="mt-1.5" />
-        </div>
-        <div>
-          <Label htmlFor="m-school">Past or Current School / Organization</Label>
-          <Input id="m-school" className="mt-1.5" />
-        </div>
+      <div className="grid gap-6 sm:grid-cols-2">
+        <div><Label htmlFor="m-years" className="text-white/60">Years of Experience</Label><Input id="m-years" type="number" min="0" className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
+        <div><Label htmlFor="m-school" className="text-white/60">School / Organization</Label><Input id="m-school" className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
       </div>
-
       <fieldset>
-        <legend className="mb-3 text-sm font-medium">Participation Interest</legend>
+        <legend className="mb-4 text-sm font-medium text-white/60">Participation Interest</legend>
         <div className="space-y-3">
-          {participationOptions.map((option) => (
-            <div key={option} className="flex items-center gap-3">
-              <Checkbox id={`m-part-${option}`} />
-              <Label htmlFor={`m-part-${option}`} className="font-normal">{option}</Label>
+          {participationOptions.map((opt) => (
+            <div key={opt} className="flex items-center gap-3">
+              <Checkbox id={`m-p-${opt}`} className="border-white/30" />
+              <Label htmlFor={`m-p-${opt}`} className="font-normal text-white/50">{opt}</Label>
             </div>
           ))}
         </div>
       </fieldset>
-
-      <div>
-        <Label htmlFor="m-about">Tell us about yourself</Label>
-        <Textarea id="m-about" rows={3} className="mt-1.5" />
-      </div>
-      <div>
-        <Label htmlFor="m-why">Why would you like to join NOEMA Ensemble?</Label>
-        <Textarea id="m-why" required rows={3} className="mt-1.5" />
-      </div>
-
-      <Button type="submit" size="lg" className="w-full">Submit Application</Button>
+      <div><Label htmlFor="m-about" className="text-white/60">Tell us about yourself</Label><Textarea id="m-about" rows={3} className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
+      <div><Label htmlFor="m-why" className="text-white/60">Why join NOEMA Ensemble?</Label><Textarea id="m-why" required rows={3} className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
+      <Button type="submit" size="lg" className="w-full rounded-none border border-white bg-white text-xs font-medium tracking-widest uppercase text-black hover:bg-transparent hover:text-white transition-all duration-300">Submit Application</Button>
     </form>
   );
 }

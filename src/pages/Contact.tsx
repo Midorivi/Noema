@@ -4,174 +4,131 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Card, CardContent } from "@/components/ui/card";
+import { FadeIn } from "@/components/ui/fade-in";
 import { Mail, Phone, MapPin, Check } from "lucide-react";
 
-function InstagramIcon({ className }: { className?: string }) {
+function InstagramIcon() {
   return (
-    <svg className={className} width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
     </svg>
   );
 }
 
-function YoutubeIcon({ className }: { className?: string }) {
+function YoutubeIcon() {
   return (
-    <svg className={className} width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
-      <path d="m10 15 5-3-5-3z" />
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" /><path d="m10 15 5-3-5-3z" />
     </svg>
   );
 }
-
-const contactInfo = [
-  { icon: Mail, label: "Email", value: "noema.ensemble@gmail.com", href: "mailto:noema.ensemble@gmail.com" },
-  { icon: Phone, label: "Phone", value: "+1-917-688-9738", href: "tel:+19176889738" },
-  { icon: MapPin, label: "Address", value: "11681 Trask Avenue, Garden Grove, CA 92843" },
-];
 
 export function Contact() {
   const [contactSent, setContactSent] = useState(false);
   const [subscribed, setSubscribed] = useState(false);
 
-  function handleContact(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setContactSent(true);
-  }
-
-  function handleSubscribe(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setSubscribed(true);
-  }
+  function handleContact(e: FormEvent<HTMLFormElement>) { e.preventDefault(); setContactSent(true); }
+  function handleSubscribe(e: FormEvent<HTMLFormElement>) { e.preventDefault(); setSubscribed(true); }
 
   return (
     <>
-      <section className="px-6 py-24 text-center">
-        <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-6xl">Contact Us</h1>
-        <p className="text-lg text-muted-foreground">We&apos;d love to hear from you</p>
+      <section className="flex min-h-[70vh] flex-col justify-end px-8 pb-20 pt-32 md:px-16 lg:px-24">
+        <p className="mb-4 text-xs font-medium tracking-[0.3em] uppercase text-white/40 animate-fade-in">Contact</p>
+        <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-tight md:text-6xl lg:text-7xl animate-fade-up">
+          We&apos;d love
+          <br />
+          <span className="text-white/40">to hear from you</span>
+        </h1>
       </section>
 
-      <section className="border-t border-border px-6 py-20">
-        <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
-          {contactInfo.map((item) => (
-            <Card key={item.label} className="border border-border">
-              <CardContent className="flex flex-col items-center p-8 text-center">
-                <item.icon className="mb-4 h-8 w-8" />
-                <h3 className="mb-2 font-semibold">{item.label}</h3>
+      <section className="border-t border-white/10 px-8 py-32 md:px-16 lg:px-24">
+        <FadeIn>
+          <div className="grid gap-px bg-white/10 md:grid-cols-3">
+            {[
+              { icon: Mail, label: "Email", value: "noema.ensemble@gmail.com", href: "mailto:noema.ensemble@gmail.com" },
+              { icon: Phone, label: "Phone", value: "+1-917-688-9738", href: "tel:+19176889738" },
+              { icon: MapPin, label: "Address", value: "11681 Trask Avenue, Garden Grove, CA 92843" },
+            ].map((item) => (
+              <div key={item.label} className="bg-background p-10 md:p-14">
+                <item.icon className="mb-6 h-5 w-5 text-white/40" />
+                <p className="mb-2 text-xs font-medium tracking-widest uppercase text-white/40">{item.label}</p>
                 {item.href ? (
-                  <a href={item.href} className="text-sm text-muted-foreground underline underline-offset-4 hover:text-foreground">
-                    {item.value}
-                  </a>
+                  <a href={item.href} className="text-sm text-white/70 underline underline-offset-4 transition-colors hover:text-white">{item.value}</a>
                 ) : (
-                  <p className="text-sm text-muted-foreground">{item.value}</p>
+                  <p className="text-sm text-white/70">{item.value}</p>
                 )}
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      <section className="border-t border-border bg-secondary px-6 py-20">
-        <div className="mx-auto max-w-xl">
-          <h2 className="mb-8 text-center text-2xl font-bold tracking-tight md:text-3xl">
-            Send a Message
-          </h2>
-          {contactSent ? (
-            <div className="flex flex-col items-center py-12 text-center">
-              <Check className="mb-4 h-12 w-12" />
-              <p className="text-lg font-medium">Thank you for reaching out!</p>
-              <p className="text-muted-foreground">We&apos;ll get back to you soon.</p>
-            </div>
-          ) : (
-            <form onSubmit={handleContact} className="space-y-5">
-              <div>
-                <Label htmlFor="contact-name">Name</Label>
-                <Input id="contact-name" required className="mt-1.5" />
               </div>
-              <div>
-                <Label htmlFor="contact-email">Email</Label>
-                <Input id="contact-email" type="email" required className="mt-1.5" />
-              </div>
-              <div>
-                <Label htmlFor="contact-subject">Subject</Label>
-                <Input id="contact-subject" required className="mt-1.5" />
-              </div>
-              <div>
-                <Label htmlFor="contact-message">Message</Label>
-                <Textarea id="contact-message" required rows={5} className="mt-1.5" />
-              </div>
-              <Button type="submit" size="lg" className="w-full">
-                Send Message
-              </Button>
-            </form>
-          )}
-        </div>
-      </section>
-
-      <section className="border-t border-border px-6 py-20">
-        <div className="mx-auto max-w-xl text-center">
-          <h2 className="mb-2 text-2xl font-bold tracking-tight md:text-3xl">
-            Stay Connected
-          </h2>
-          <p className="mb-8 text-muted-foreground">
-            Subscribe to our newsletter for updates on events, programs, and ministry news.
-          </p>
-          {subscribed ? (
-            <div className="flex flex-col items-center py-8">
-              <Check className="mb-4 h-12 w-12" />
-              <p className="text-lg font-medium">You&apos;ve been subscribed!</p>
-              <p className="text-muted-foreground">Thank you for your interest.</p>
-            </div>
-          ) : (
-            <form onSubmit={handleSubscribe} className="space-y-4 text-left">
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <Label htmlFor="sub-first">First Name</Label>
-                  <Input id="sub-first" required className="mt-1.5" />
-                </div>
-                <div>
-                  <Label htmlFor="sub-last">Last Name</Label>
-                  <Input id="sub-last" required className="mt-1.5" />
-                </div>
-              </div>
-              <div>
-                <Label htmlFor="sub-email">Email</Label>
-                <Input id="sub-email" type="email" required className="mt-1.5" />
-              </div>
-              <Button type="submit" size="lg" className="w-full">
-                Subscribe
-              </Button>
-            </form>
-          )}
-        </div>
-      </section>
-
-      <section className="border-t border-border bg-secondary px-6 py-16">
-        <div className="mx-auto max-w-xl text-center">
-          <h2 className="mb-6 text-xl font-bold">Follow Us</h2>
-          <div className="flex justify-center gap-8">
-            <a
-              href="https://instagram.com/noema.ensemble"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <InstagramIcon className="h-8 w-8" />
-              <span className="text-sm">Instagram</span>
-            </a>
-            <a
-              href="https://www.youtube.com/@Noema.ensemble"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center gap-2 text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <YoutubeIcon className="h-8 w-8" />
-              <span className="text-sm">YouTube</span>
-            </a>
+            ))}
           </div>
-        </div>
+        </FadeIn>
+      </section>
+
+      <section className="border-t border-white/10 px-8 py-32 md:px-16 lg:px-24">
+        <FadeIn>
+          <div className="grid gap-16 lg:grid-cols-[1fr_2fr]">
+            <p className="text-xs font-medium tracking-[0.3em] uppercase text-white/40">Message</p>
+            <div className="max-w-xl">
+              {contactSent ? (
+                <div className="flex flex-col items-center py-16 text-center">
+                  <Check className="mb-4 h-10 w-10 text-white/60" />
+                  <p className="text-lg font-medium">Thank you for reaching out!</p>
+                  <p className="text-sm text-white/50">We&apos;ll get back to you soon.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleContact} className="space-y-6">
+                  <div><Label htmlFor="c-name" className="text-white/60">Name</Label><Input id="c-name" required className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
+                  <div><Label htmlFor="c-email" className="text-white/60">Email</Label><Input id="c-email" type="email" required className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
+                  <div><Label htmlFor="c-subject" className="text-white/60">Subject</Label><Input id="c-subject" required className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
+                  <div><Label htmlFor="c-msg" className="text-white/60">Message</Label><Textarea id="c-msg" required rows={5} className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
+                  <Button type="submit" size="lg" className="w-full rounded-none border border-white bg-white text-xs font-medium tracking-widest uppercase text-black hover:bg-transparent hover:text-white transition-all duration-300">Send Message</Button>
+                </form>
+              )}
+            </div>
+          </div>
+        </FadeIn>
+      </section>
+
+      <section className="border-t border-white/10 px-8 py-32 md:px-16 lg:px-24">
+        <FadeIn>
+          <div className="grid gap-16 lg:grid-cols-[1fr_2fr]">
+            <p className="text-xs font-medium tracking-[0.3em] uppercase text-white/40">Subscribe</p>
+            <div className="max-w-xl">
+              <p className="mb-8 text-base text-white/60">Stay connected with updates on events, programs, and ministry news.</p>
+              {subscribed ? (
+                <div className="flex flex-col items-center py-12 text-center">
+                  <Check className="mb-4 h-10 w-10 text-white/60" />
+                  <p className="text-lg font-medium">Subscribed!</p>
+                  <p className="text-sm text-white/50">Thank you for your interest.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubscribe} className="space-y-6">
+                  <div className="grid gap-6 sm:grid-cols-2">
+                    <div><Label htmlFor="sub-f" className="text-white/60">First Name</Label><Input id="sub-f" required className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
+                    <div><Label htmlFor="sub-l" className="text-white/60">Last Name</Label><Input id="sub-l" required className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
+                  </div>
+                  <div><Label htmlFor="sub-e" className="text-white/60">Email</Label><Input id="sub-e" type="email" required className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
+                  <Button type="submit" size="lg" className="w-full rounded-none border border-white bg-white text-xs font-medium tracking-widest uppercase text-black hover:bg-transparent hover:text-white transition-all duration-300">Subscribe</Button>
+                </form>
+              )}
+            </div>
+          </div>
+        </FadeIn>
+      </section>
+
+      <section className="border-t border-white/10 px-8 py-20 md:px-16 lg:px-24">
+        <FadeIn>
+          <div className="grid gap-16 lg:grid-cols-[1fr_2fr]">
+            <p className="text-xs font-medium tracking-[0.3em] uppercase text-white/40">Follow</p>
+            <div className="flex gap-8">
+              <a href="https://instagram.com/noema.ensemble" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-white/40 transition-colors duration-300 hover:text-white">
+                <InstagramIcon /> Instagram
+              </a>
+              <a href="https://www.youtube.com/@Noema.ensemble" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-white/40 transition-colors duration-300 hover:text-white">
+                <YoutubeIcon /> YouTube
+              </a>
+            </div>
+          </div>
+        </FadeIn>
       </section>
     </>
   );
