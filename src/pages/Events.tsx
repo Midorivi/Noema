@@ -52,6 +52,16 @@ export function Events() {
             <p className="text-xs font-medium tracking-[0.3em] uppercase text-white/40">Photos &amp; Videos</p>
             <div>
               <p className="mb-8 text-base text-white/60">Follow our journey and watch our performances.</p>
+              <div className="mb-8 aspect-video w-full border border-white/10">
+                <iframe
+                  src="https://www.youtube.com/embed?listType=user_uploads&list=Noema.ensemble"
+                  title="NOEMA Ensemble YouTube"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="h-full w-full"
+                  loading="lazy"
+                />
+              </div>
               <a
                 href="https://www.youtube.com/@Noema.ensemble"
                 target="_blank"

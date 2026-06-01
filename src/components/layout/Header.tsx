@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
@@ -16,58 +16,82 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
 
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <Link to="/" className="text-xl font-bold tracking-tight uppercase">
-          NOEMA
-        </Link>
+    <>
+      <header className="fixed top-0 z-50 w-full border-b border-white/10 bg-black/80 backdrop-blur-md">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-8">
+          <Link
+            to="/"
+            className="text-sm font-semibold tracking-[0.3em] uppercase text-white"
+          >
+            NOEMA
+          </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              className={`text-sm font-medium transition-colors hover:text-foreground ${
-                location.pathname === link.to
-                  ? "text-foreground"
-                  : "text-muted-foreground"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
-
-        <button
-          className="lg:hidden"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {mobileOpen && (
-        <div className="border-t border-border bg-background lg:hidden">
-          <nav className="mx-auto flex max-w-7xl flex-col px-6 py-4">
+          <nav className="hidden items-center gap-10 lg:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
-                onClick={() => setMobileOpen(false)}
-                className={`py-3 text-sm font-medium transition-colors hover:text-foreground ${
+                data-active={location.pathname === link.to}
+                className={`nav-link relative text-xs font-medium tracking-widest uppercase transition-colors duration-300 ${
                   location.pathname === link.to
-                    ? "text-foreground"
-                    : "text-muted-foreground"
+                    ? "text-white"
+                    : "text-white/50 hover:text-white"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
           </nav>
+
+          <button
+            className="text-white lg:hidden"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
-      )}
-    </header>
+      </header>
+
+      <div
+        className={`fixed inset-0 z-40 bg-black transition-all duration-500 lg:hidden ${
+          mobileOpen
+            ? "opacity-100 visible"
+            : "opacity-0 invisible"
+        }`}
+      >
+        <nav className="flex h-full flex-col justify-center px-8">
+          {navLinks.map((link, i) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              onClick={() => setMobileOpen(false)}
+              className={`border-b border-white/10 py-5 text-2xl font-light tracking-wide transition-all duration-500 ${
+                mobileOpen
+                  ? "translate-x-0 opacity-100"
+                  : "translate-x-8 opacity-0"
+              } ${
+                location.pathname === link.to
+                  ? "text-white"
+                  : "text-white/40"
+              }`}
+              style={{ transitionDelay: mobileOpen ? `${i * 50}ms` : "0ms" }}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+      </div>
+    </>
   );
 }
