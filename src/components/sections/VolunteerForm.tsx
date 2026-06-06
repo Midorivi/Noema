@@ -20,14 +20,14 @@ export function VolunteerForm() {
       <div className="flex flex-col items-center py-16 text-center">
         <Check className="mb-4 h-10 w-10 text-black/60" />
         <p className="text-lg font-medium">Thank you!</p>
-        <p className="text-sm text-black/50">Your application has been submitted. We&apos;ll be in touch soon.</p>
+        <p className="text-sm text-black/70">Your application has been submitted. We&apos;ll be in touch soon.</p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <p className="text-sm text-black/40">Volunteers play an important role in supporting our programs, events, and community outreach activities.</p>
+    <form onSubmit={handleSubmit} className="space-y-[1px] bg-black/8">
+      <p className="text-sm text-black/60">Volunteers play an important role in supporting our programs, events, and community outreach activities.</p>
       <div className="grid gap-6 sm:grid-cols-2">
         <div><Label htmlFor="v-first" className="text-black/60">First Name</Label><Input id="v-first" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
         <div><Label htmlFor="v-last" className="text-black/60">Last Name</Label><Input id="v-last" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
@@ -43,7 +43,7 @@ export function VolunteerForm() {
           {interestOptions.map((opt) => (
             <div key={opt} className="flex items-center gap-3">
               <Checkbox id={`v-i-${opt}`} className="border-black/30" />
-              <Label htmlFor={`v-i-${opt}`} className="font-normal text-black/50">{opt}</Label>
+              <Label htmlFor={`v-i-${opt}`} className="font-normal text-black/70">{opt}</Label>
             </div>
           ))}
         </div>

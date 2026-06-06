@@ -21,14 +21,14 @@ export function MusicianForm() {
       <div className="flex flex-col items-center py-16 text-center">
         <Check className="mb-4 h-10 w-10 text-black/60" />
         <p className="text-lg font-medium">Thank you!</p>
-        <p className="text-sm text-black/50">Your application has been submitted. We&apos;ll be in touch soon.</p>
+        <p className="text-sm text-black/70">Your application has been submitted. We&apos;ll be in touch soon.</p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <p className="text-sm text-black/40">We welcome both music majors and non-music majors who share a passion for music, service, and community.</p>
+    <form onSubmit={handleSubmit} className="space-y-[1px] bg-black/8">
+      <p className="text-sm text-black/60">We welcome both music majors and non-music majors who share a passion for music, service, and community.</p>
       <div className="grid gap-6 sm:grid-cols-2">
         <div><Label htmlFor="m-first" className="text-black/60">First Name</Label><Input id="m-first" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
         <div><Label htmlFor="m-last" className="text-black/60">Last Name</Label><Input id="m-last" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
@@ -59,7 +59,7 @@ export function MusicianForm() {
           {participationOptions.map((opt) => (
             <div key={opt} className="flex items-center gap-3">
               <Checkbox id={`m-p-${opt}`} className="border-black/30" />
-              <Label htmlFor={`m-p-${opt}`} className="font-normal text-black/50">{opt}</Label>
+              <Label htmlFor={`m-p-${opt}`} className="font-normal text-black/70">{opt}</Label>
             </div>
           ))}
         </div>

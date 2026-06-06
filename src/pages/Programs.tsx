@@ -7,17 +7,17 @@ export function Programs() {
   return (
     <>
       <section className="flex min-h-[70vh] flex-col justify-end px-8 pb-20 pt-32 md:px-16 lg:px-24">
-        <p className="mb-4 text-xs font-medium tracking-[0.3em] uppercase text-black/40 animate-fade-in">Programs</p>
+        <p className="mb-4 text-xs font-medium tracking-[0.3em] uppercase text-black/60 animate-fade-in">Programs</p>
         <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-tight md:text-6xl lg:text-7xl animate-fade-up">
           Music education
           <br />
-          <span className="text-black/40">&amp; community outreach</span>
+          <span className="text-black/60">&amp; community outreach</span>
         </h1>
       </section>
 
-      <section className="border-t border-black/10 px-8 py-32 md:px-16 lg:px-24">
-        <FadeIn><p className="mb-20 text-xs font-medium tracking-[0.3em] uppercase text-black/40">Music Education</p></FadeIn>
-        <div className="space-y-px bg-black/10">
+      <section className="border-t border-black/15 px-8 py-32 md:px-16 lg:px-24">
+        <FadeIn><p className="mb-20 text-xs font-medium tracking-[0.3em] uppercase text-black/60">Music Education</p></FadeIn>
+        <div className="space-y-[1px] bg-black/8">
           {[
             {
               title: "Music Workshops",
@@ -43,10 +43,10 @@ export function Programs() {
                 <div className="max-w-2xl flex-1">
                   <div className="mb-3 flex flex-wrap items-center gap-4">
                     <h3 className="text-xl font-semibold">{p.title}</h3>
-                    {p.status && <span className="text-xs tracking-wider text-black/30 uppercase">{p.status}</span>}
+                    {p.status && <span className="text-xs tracking-wider text-black/50 uppercase">{p.status}</span>}
                   </div>
                   <p className="mb-3 text-sm leading-relaxed text-black/60">{p.text}</p>
-                  <p className="text-xs text-black/30">{p.details}</p>
+                  <p className="text-xs text-black/50">{p.details}</p>
                 </div>
                 {p.hasApply && (
                   <Button asChild variant="outline" className="shrink-0 rounded-none border-black/30 text-xs tracking-widest uppercase hover:border-black hover:bg-black hover:text-white transition-all duration-300">
@@ -59,9 +59,9 @@ export function Programs() {
         </div>
       </section>
 
-      <section className="border-t border-black/10 px-8 py-32 md:px-16 lg:px-24">
-        <FadeIn><p className="mb-20 text-xs font-medium tracking-[0.3em] uppercase text-black/40">Community Outreach</p></FadeIn>
-        <div className="space-y-px bg-black/10">
+      <section className="border-t border-black/15 px-8 py-32 md:px-16 lg:px-24">
+        <FadeIn><p className="mb-20 text-xs font-medium tracking-[0.3em] uppercase text-black/60">Community Outreach</p></FadeIn>
+        <div className="space-y-[1px] bg-black/8">
           {[
             { title: "Nursing Home Concerts", text: "A service activity that visits nursing homes and senior facilities to deliver comfort and joy through music." },
             { title: "Community Service Events", text: "Various service projects and sharing activities to serve and support the community." },
@@ -73,7 +73,7 @@ export function Programs() {
                   <h3 className="mb-3 text-xl font-semibold">{p.title}</h3>
                   <p className="text-sm leading-relaxed text-black/60">{p.text}</p>
                 </div>
-                <span className="shrink-0 text-xs tracking-wider text-black/30 uppercase">Upcoming</span>
+                <span className="shrink-0 text-xs tracking-wider text-black/50 uppercase">Upcoming</span>
               </div>
             </FadeIn>
           ))}

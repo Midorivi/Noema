@@ -33,25 +33,25 @@ export function Contact() {
   return (
     <>
       <section className="flex min-h-[70vh] flex-col justify-end px-8 pb-20 pt-32 md:px-16 lg:px-24">
-        <p className="mb-4 text-xs font-medium tracking-[0.3em] uppercase text-black/40 animate-fade-in">Contact</p>
+        <p className="mb-4 text-xs font-medium tracking-[0.3em] uppercase text-black/60 animate-fade-in">Contact</p>
         <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-tight md:text-6xl lg:text-7xl animate-fade-up">
           We&apos;d love
           <br />
-          <span className="text-black/40">to hear from you</span>
+          <span className="text-black/60">to hear from you</span>
         </h1>
       </section>
 
-      <section className="border-t border-black/10 px-8 py-32 md:px-16 lg:px-24">
+      <section className="border-t border-black/15 px-8 py-32 md:px-16 lg:px-24">
         <FadeIn>
-          <div className="grid gap-px bg-black/10 md:grid-cols-3">
+          <div className="grid md:grid-cols-3 divide-x divide-black/10">
             {[
               { icon: Mail, label: "Email", value: "noema.ensemble@gmail.com", href: "mailto:noema.ensemble@gmail.com" },
               { icon: Phone, label: "Phone", value: "+1-917-688-9738", href: "tel:+19176889738" },
               { icon: MapPin, label: "Address", value: "11681 Trask Avenue, Garden Grove, CA 92843" },
             ].map((item) => (
               <div key={item.label} className="bg-background p-10 md:p-14">
-                <item.icon className="mb-6 h-5 w-5 text-black/40" />
-                <p className="mb-2 text-xs font-medium tracking-widest uppercase text-black/40">{item.label}</p>
+                <item.icon className="mb-6 h-5 w-5 text-black/60" />
+                <p className="mb-2 text-xs font-medium tracking-widest uppercase text-black/60">{item.label}</p>
                 {item.href ? (
                   <a href={item.href} className="text-sm text-black/70 underline underline-offset-4 transition-colors hover:text-black">{item.value}</a>
                 ) : (
@@ -63,19 +63,19 @@ export function Contact() {
         </FadeIn>
       </section>
 
-      <section className="border-t border-black/10 px-8 py-32 md:px-16 lg:px-24">
+      <section className="border-t border-black/15 px-8 py-32 md:px-16 lg:px-24">
         <FadeIn>
           <div className="grid gap-16 lg:grid-cols-[1fr_2fr]">
-            <p className="text-xs font-medium tracking-[0.3em] uppercase text-black/40">Message</p>
+            <p className="text-xs font-medium tracking-[0.3em] uppercase text-black/60">Message</p>
             <div className="max-w-xl">
               {contactSent ? (
                 <div className="flex flex-col items-center py-16 text-center">
                   <Check className="mb-4 h-10 w-10 text-black/60" />
                   <p className="text-lg font-medium">Thank you for reaching out!</p>
-                  <p className="text-sm text-black/50">We&apos;ll get back to you soon.</p>
+                  <p className="text-sm text-black/70">We&apos;ll get back to you soon.</p>
                 </div>
               ) : (
-                <form onSubmit={handleContact} className="space-y-6">
+                <form onSubmit={handleContact} className="space-y-[1px] bg-black/8">
                   <div><Label htmlFor="c-name" className="text-black/60">Name</Label><Input id="c-name" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
                   <div><Label htmlFor="c-email" className="text-black/60">Email</Label><Input id="c-email" type="email" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
                   <div><Label htmlFor="c-subject" className="text-black/60">Subject</Label><Input id="c-subject" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
@@ -88,20 +88,20 @@ export function Contact() {
         </FadeIn>
       </section>
 
-      <section className="border-t border-black/10 px-8 py-32 md:px-16 lg:px-24">
+      <section className="border-t border-black/15 px-8 py-32 md:px-16 lg:px-24">
         <FadeIn>
           <div className="grid gap-16 lg:grid-cols-[1fr_2fr]">
-            <p className="text-xs font-medium tracking-[0.3em] uppercase text-black/40">Subscribe</p>
+            <p className="text-xs font-medium tracking-[0.3em] uppercase text-black/60">Subscribe</p>
             <div className="max-w-xl">
               <p className="mb-8 text-base text-black/60">Stay connected with updates on events, programs, and ministry news.</p>
               {subscribed ? (
                 <div className="flex flex-col items-center py-12 text-center">
                   <Check className="mb-4 h-10 w-10 text-black/60" />
                   <p className="text-lg font-medium">Subscribed!</p>
-                  <p className="text-sm text-black/50">Thank you for your interest.</p>
+                  <p className="text-sm text-black/70">Thank you for your interest.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubscribe} className="space-y-6">
+                <form onSubmit={handleSubscribe} className="space-y-[1px] bg-black/8">
                   <div className="grid gap-6 sm:grid-cols-2">
                     <div><Label htmlFor="sub-f" className="text-black/60">First Name</Label><Input id="sub-f" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
                     <div><Label htmlFor="sub-l" className="text-black/60">Last Name</Label><Input id="sub-l" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
@@ -115,15 +115,15 @@ export function Contact() {
         </FadeIn>
       </section>
 
-      <section className="border-t border-black/10 px-8 py-20 md:px-16 lg:px-24">
+      <section className="border-t border-black/15 px-8 py-20 md:px-16 lg:px-24">
         <FadeIn>
           <div className="grid gap-16 lg:grid-cols-[1fr_2fr]">
-            <p className="text-xs font-medium tracking-[0.3em] uppercase text-black/40">Follow</p>
+            <p className="text-xs font-medium tracking-[0.3em] uppercase text-black/60">Follow</p>
             <div className="flex gap-8">
-              <a href="https://instagram.com/noema.ensemble" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-black/40 transition-colors duration-300 hover:text-black">
+              <a href="https://instagram.com/noema.ensemble" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-black/60 transition-colors duration-300 hover:text-black">
                 <InstagramIcon /> Instagram
               </a>
-              <a href="https://www.youtube.com/@Noema.ensemble" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-black/40 transition-colors duration-300 hover:text-black">
+              <a href="https://www.youtube.com/@Noema.ensemble" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-black/60 transition-colors duration-300 hover:text-black">
                 <YoutubeIcon /> YouTube
               </a>
             </div>

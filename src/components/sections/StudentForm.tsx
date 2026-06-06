@@ -20,13 +20,13 @@ export function StudentForm() {
       <div className="flex flex-col items-center py-16 text-center">
         <Check className="mb-4 h-10 w-10 text-black/60" />
         <p className="text-lg font-medium">Thank you!</p>
-        <p className="text-sm text-black/50">Your application has been submitted. We&apos;ll be in touch soon.</p>
+        <p className="text-sm text-black/70">Your application has been submitted. We&apos;ll be in touch soon.</p>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-[1px] bg-black/8">
       <div>
         <Label htmlFor="s-program" className="text-black/60">Program</Label>
         <select id="s-program" required className="mt-2 flex h-10 w-full rounded-none border border-black/20 bg-transparent px-3 py-2 text-sm text-black outline-none focus:border-black">
@@ -47,7 +47,7 @@ export function StudentForm() {
             {instrumentOptions.map((opt) => <option key={opt} value={opt} className="bg-white">{opt}</option>)}
           </select>
         </div>
-        <div><Label htmlFor="s-duration" className="text-black/60">Duration of Learning</Label><Input id="s-duration" placeholder="e.g. 3 years" className="mt-2 rounded-none border-black/20 bg-transparent text-black placeholder:text-black/20 focus:border-black" /></div>
+        <div><Label htmlFor="s-duration" className="text-black/60">Duration of Learning</Label><Input id="s-duration" placeholder="e.g. 3 years" className="mt-2 rounded-none border-black/20 bg-transparent text-black placeholder:text-black/35 focus:border-black" /></div>
       </div>
       <div className="grid gap-6 sm:grid-cols-2">
         <div><Label htmlFor="s-phone" className="text-black/60">Phone Number</Label><Input id="s-phone" type="tel" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
