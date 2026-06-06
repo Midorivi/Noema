@@ -6,19 +6,19 @@ export function About() {
   return (
     <>
       <section className="flex min-h-[70vh] flex-col justify-end px-8 pb-20 pt-32 md:px-16 lg:px-24">
-        <p className="mb-4 text-xs font-medium tracking-[0.3em] uppercase text-white/40 animate-fade-in">About Us</p>
+        <p className="mb-4 text-xs font-medium tracking-[0.3em] uppercase text-black/40 animate-fade-in">About Us</p>
         <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-tight md:text-6xl lg:text-7xl animate-fade-up">
           A community united
           <br />
-          <span className="text-white/40">by music, faith, and service</span>
+          <span className="text-black/40">by music, faith, and service</span>
         </h1>
       </section>
 
-      <section className="border-t border-white/10 px-8 py-32 md:px-16 lg:px-24">
+      <section className="border-t border-black/10 px-8 py-32 md:px-16 lg:px-24">
         <FadeIn>
           <div className="grid gap-16 lg:grid-cols-[1fr_2fr]">
-            <p className="text-xs font-medium tracking-[0.3em] uppercase text-white/40">Who We Are</p>
-            <div className="max-w-2xl space-y-6 text-base leading-relaxed text-white/60">
+            <p className="text-xs font-medium tracking-[0.3em] uppercase text-black/40">Who We Are</p>
+            <div className="max-w-2xl space-y-6 text-base leading-relaxed text-black/60">
               <p>
                 NOEMA Ensemble is a music ministry organization operated for religious and
                 educational purposes. We are a community where music majors and non-music
@@ -40,7 +40,7 @@ export function About() {
                 people&apos;s lives through music, allow them to experience healing and
                 restoration, and glorify God by practicing service.
               </p>
-              <p className="text-white">
+              <p className="text-black">
                 To NOEMA Ensemble, music is not simply a performance. Music is our ministry,
                 service, and calling to change the world.
               </p>
@@ -49,11 +49,11 @@ export function About() {
         </FadeIn>
       </section>
 
-      <section className="border-t border-white/10 px-8 py-32 md:px-16 lg:px-24">
+      <section className="border-t border-black/10 px-8 py-32 md:px-16 lg:px-24">
         <FadeIn>
           <div className="grid gap-16 lg:grid-cols-[1fr_2fr]">
-            <p className="text-xs font-medium tracking-[0.3em] uppercase text-white/40">Our Story</p>
-            <div className="max-w-2xl space-y-6 text-base leading-relaxed text-white/60">
+            <p className="text-xs font-medium tracking-[0.3em] uppercase text-black/40">Our Story</p>
+            <div className="max-w-2xl space-y-6 text-base leading-relaxed text-black/60">
               <p>
                 Noema Ensemble was founded to unite musicians of all backgrounds in using
                 music as a tool for service, community engagement, and Christian ministry.
@@ -65,7 +65,7 @@ export function About() {
                 become a tool that connects people, builds community, and serves as a tool
                 of service and ministry.
               </p>
-              <p className="font-serif text-xl italic text-white/80">
+              <p className="font-serif text-xl italic text-black/80">
                 &ldquo;You are not alone.&rdquo;
               </p>
               <p>
@@ -83,16 +83,16 @@ export function About() {
         </FadeIn>
       </section>
 
-      <section className="border-t border-white/10 px-8 py-32 md:px-16 lg:px-24">
+      <section className="border-t border-black/10 px-8 py-32 md:px-16 lg:px-24">
         <FadeIn>
-          <p className="mb-16 text-xs font-medium tracking-[0.3em] uppercase text-white/40">Leadership</p>
+          <p className="mb-16 text-xs font-medium tracking-[0.3em] uppercase text-black/40">Leadership</p>
         </FadeIn>
-        <div className="grid gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-5">
+        <div className="grid gap-px bg-black/10 sm:grid-cols-2 lg:grid-cols-5">
           {leaders.map((role, i) => (
             <FadeIn key={role} delay={i * 100}>
               <div className="bg-background p-8">
                 <p className="mb-2 text-sm font-semibold">{role}</p>
-                <p className="text-xs text-white/30">Name TBD</p>
+                <p className="text-xs text-black/30">Name TBD</p>
               </div>
             </FadeIn>
           ))}

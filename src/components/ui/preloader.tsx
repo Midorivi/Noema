@@ -16,11 +16,11 @@ export function Preloader() {
 
   return (
     <div
-      className={`fixed inset-0 z-[100] flex items-center justify-center bg-black transition-opacity duration-600 ${
+      className={`fixed inset-0 z-[100] flex items-center justify-center bg-white transition-opacity duration-600 ${
         phase === "fading" ? "opacity-0" : "opacity-100"
       }`}
     >
-      <p className="text-sm font-semibold tracking-[0.4em] uppercase text-white animate-fade-in">
+      <p className="text-sm font-semibold tracking-[0.4em] uppercase text-black animate-fade-in">
         NOEMA
       </p>
     </div>

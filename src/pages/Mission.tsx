@@ -28,19 +28,19 @@ export function Mission() {
   return (
     <>
       <section className="flex min-h-[70vh] flex-col justify-end px-8 pb-20 pt-32 md:px-16 lg:px-24">
-        <p className="mb-4 text-xs font-medium tracking-[0.3em] uppercase text-white/40 animate-fade-in">Mission &amp; Vision</p>
+        <p className="mb-4 text-xs font-medium tracking-[0.3em] uppercase text-black/40 animate-fade-in">Mission &amp; Vision</p>
         <h1 className="max-w-4xl text-4xl font-bold leading-tight tracking-tight md:text-6xl lg:text-7xl animate-fade-up">
           Our purpose, values,
           <br />
-          <span className="text-white/40">and the foundation we build upon</span>
+          <span className="text-black/40">and the foundation we build upon</span>
         </h1>
       </section>
 
-      <section className="border-t border-white/10 px-8 py-32 md:px-16 lg:px-24">
+      <section className="border-t border-black/10 px-8 py-32 md:px-16 lg:px-24">
         <FadeIn>
           <div className="grid gap-16 lg:grid-cols-[1fr_2fr]">
-            <p className="text-xs font-medium tracking-[0.3em] uppercase text-white/40">Mission</p>
-            <p className="max-w-2xl text-2xl font-light leading-relaxed text-white/80 md:text-3xl">
+            <p className="text-xs font-medium tracking-[0.3em] uppercase text-black/40">Mission</p>
+            <p className="max-w-2xl text-2xl font-light leading-relaxed text-black/80 md:text-3xl">
               To glorify God by bringing together musicians and people of diverse
               backgrounds to serve communities through music, education, outreach,
               and acts of love.
@@ -49,11 +49,11 @@ export function Mission() {
         </FadeIn>
       </section>
 
-      <section className="border-t border-white/10 px-8 py-32 md:px-16 lg:px-24">
+      <section className="border-t border-black/10 px-8 py-32 md:px-16 lg:px-24">
         <FadeIn>
           <div className="grid gap-16 lg:grid-cols-[1fr_2fr]">
-            <p className="text-xs font-medium tracking-[0.3em] uppercase text-white/40">Vision</p>
-            <p className="max-w-2xl text-xl font-light leading-relaxed text-white/70 md:text-2xl">
+            <p className="text-xs font-medium tracking-[0.3em] uppercase text-black/40">Vision</p>
+            <p className="max-w-2xl text-xl font-light leading-relaxed text-black/70 md:text-2xl">
               To become a Christ-centered music ministry community that transforms
               people&apos;s lives and communities through faith, music, and service.
             </p>
@@ -61,11 +61,11 @@ export function Mission() {
         </FadeIn>
       </section>
 
-      <section className="border-t border-white/10 px-8 py-32 md:px-16 lg:px-24">
+      <section className="border-t border-black/10 px-8 py-32 md:px-16 lg:px-24">
         <FadeIn>
           <div className="grid gap-16 lg:grid-cols-[1fr_2fr]">
-            <p className="text-xs font-medium tracking-[0.3em] uppercase text-white/40">Purpose</p>
-            <p className="max-w-2xl text-lg leading-relaxed text-white/60">
+            <p className="text-xs font-medium tracking-[0.3em] uppercase text-black/40">Purpose</p>
+            <p className="max-w-2xl text-lg leading-relaxed text-black/60">
               NOEMA Ensemble exists to open people&apos;s hearts through music and,
               with a prayerful heart, to become strength for them to move toward a
               brighter future, to heal the wounds of people&apos;s hearts, deliver
@@ -75,30 +75,30 @@ export function Mission() {
         </FadeIn>
       </section>
 
-      <section className="border-t border-white/10 px-8 py-32 md:px-16 lg:px-24">
-        <FadeIn><p className="mb-20 text-xs font-medium tracking-[0.3em] uppercase text-white/40">Our Values</p></FadeIn>
-        <div className="grid gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="border-t border-black/10 px-8 py-32 md:px-16 lg:px-24">
+        <FadeIn><p className="mb-20 text-xs font-medium tracking-[0.3em] uppercase text-black/40">Our Values</p></FadeIn>
+        <div className="grid gap-px bg-black/10 sm:grid-cols-2 lg:grid-cols-3">
           {values.map((v, i) => (
             <FadeIn key={v.title} delay={i * 100}>
               <div className="bg-background p-10 md:p-14">
                 <p className="mb-3 text-lg font-semibold">{v.title}</p>
-                <p className="text-sm leading-relaxed text-white/50">{v.text}</p>
+                <p className="text-sm leading-relaxed text-black/50">{v.text}</p>
               </div>
             </FadeIn>
           ))}
         </div>
       </section>
 
-      <section className="border-t border-white/10 px-8 py-32 md:px-16 lg:px-24">
-        <FadeIn><p className="mb-20 text-xs font-medium tracking-[0.3em] uppercase text-white/40">Scripture Foundation</p></FadeIn>
+      <section className="border-t border-black/10 px-8 py-32 md:px-16 lg:px-24">
+        <FadeIn><p className="mb-20 text-xs font-medium tracking-[0.3em] uppercase text-black/40">Scripture Foundation</p></FadeIn>
         <div className="grid gap-12 md:grid-cols-2">
           {scriptures.map((verse, i) => (
             <FadeIn key={verse.ref} delay={i * 80}>
-              <blockquote className="border-l border-white/20 pl-8">
-                <p className="mb-3 font-serif text-lg italic leading-relaxed text-white/70">
+              <blockquote className="border-l border-black/20 pl-8">
+                <p className="mb-3 font-serif text-lg italic leading-relaxed text-black/70">
                   &ldquo;{verse.text}&rdquo;
                 </p>
-                <cite className="text-xs font-medium tracking-wider text-white/30 not-italic uppercase">
+                <cite className="text-xs font-medium tracking-wider text-black/30 not-italic uppercase">
                   {verse.ref}
                 </cite>
               </blockquote>

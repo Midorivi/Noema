@@ -18,46 +18,46 @@ export function VolunteerForm() {
   if (submitted) {
     return (
       <div className="flex flex-col items-center py-16 text-center">
-        <Check className="mb-4 h-10 w-10 text-white/60" />
+        <Check className="mb-4 h-10 w-10 text-black/60" />
         <p className="text-lg font-medium">Thank you!</p>
-        <p className="text-sm text-white/50">Your application has been submitted. We&apos;ll be in touch soon.</p>
+        <p className="text-sm text-black/50">Your application has been submitted. We&apos;ll be in touch soon.</p>
       </div>
     );
   }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      <p className="text-sm text-white/40">Volunteers play an important role in supporting our programs, events, and community outreach activities.</p>
+      <p className="text-sm text-black/40">Volunteers play an important role in supporting our programs, events, and community outreach activities.</p>
       <div className="grid gap-6 sm:grid-cols-2">
-        <div><Label htmlFor="v-first" className="text-white/60">First Name</Label><Input id="v-first" required className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
-        <div><Label htmlFor="v-last" className="text-white/60">Last Name</Label><Input id="v-last" required className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
+        <div><Label htmlFor="v-first" className="text-black/60">First Name</Label><Input id="v-first" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
+        <div><Label htmlFor="v-last" className="text-black/60">Last Name</Label><Input id="v-last" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
       </div>
       <div className="grid gap-6 sm:grid-cols-2">
-        <div><Label htmlFor="v-email" className="text-white/60">Email</Label><Input id="v-email" type="email" required className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
-        <div><Label htmlFor="v-phone" className="text-white/60">Phone</Label><Input id="v-phone" type="tel" required className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
+        <div><Label htmlFor="v-email" className="text-black/60">Email</Label><Input id="v-email" type="email" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
+        <div><Label htmlFor="v-phone" className="text-black/60">Phone</Label><Input id="v-phone" type="tel" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
       </div>
-      <div><Label htmlFor="v-loc" className="text-white/60">Location</Label><Input id="v-loc" className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
+      <div><Label htmlFor="v-loc" className="text-black/60">Location</Label><Input id="v-loc" className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
       <fieldset>
-        <legend className="mb-4 text-sm font-medium text-white/60">Areas of Interest</legend>
+        <legend className="mb-4 text-sm font-medium text-black/60">Areas of Interest</legend>
         <div className="grid gap-3 sm:grid-cols-2">
           {interestOptions.map((opt) => (
             <div key={opt} className="flex items-center gap-3">
-              <Checkbox id={`v-i-${opt}`} className="border-white/30" />
-              <Label htmlFor={`v-i-${opt}`} className="font-normal text-white/50">{opt}</Label>
+              <Checkbox id={`v-i-${opt}`} className="border-black/30" />
+              <Label htmlFor={`v-i-${opt}`} className="font-normal text-black/50">{opt}</Label>
             </div>
           ))}
         </div>
       </fieldset>
       <div>
-        <Label htmlFor="v-avail" className="text-white/60">Availability</Label>
-        <select id="v-avail" required className="mt-2 flex h-10 w-full rounded-none border border-white/20 bg-transparent px-3 py-2 text-sm text-white outline-none focus:border-white">
-          <option value="" className="bg-black">Select</option>
-          {availabilityOptions.map((opt) => <option key={opt} value={opt} className="bg-black">{opt}</option>)}
+        <Label htmlFor="v-avail" className="text-black/60">Availability</Label>
+        <select id="v-avail" required className="mt-2 flex h-10 w-full rounded-none border border-black/20 bg-transparent px-3 py-2 text-sm text-black outline-none focus:border-black">
+          <option value="" className="bg-white">Select</option>
+          {availabilityOptions.map((opt) => <option key={opt} value={opt} className="bg-white">{opt}</option>)}
         </select>
       </div>
-      <div><Label htmlFor="v-why" className="text-white/60">Why volunteer with us?</Label><Textarea id="v-why" rows={3} className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
-      <div><Label htmlFor="v-exp" className="text-white/60">Relevant experience or skills?</Label><Textarea id="v-exp" rows={3} className="mt-2 rounded-none border-white/20 bg-transparent text-white focus:border-white" /></div>
-      <Button type="submit" size="lg" className="w-full rounded-none border border-white bg-white text-xs font-medium tracking-widest uppercase text-black hover:bg-transparent hover:text-white transition-all duration-300">Submit Application</Button>
+      <div><Label htmlFor="v-why" className="text-black/60">Why volunteer with us?</Label><Textarea id="v-why" rows={3} className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
+      <div><Label htmlFor="v-exp" className="text-black/60">Relevant experience or skills?</Label><Textarea id="v-exp" rows={3} className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
+      <Button type="submit" size="lg" className="w-full rounded-none border border-black bg-black text-xs font-medium tracking-widest uppercase text-white hover:bg-transparent hover:text-black transition-all duration-300">Submit Application</Button>
     </form>
   );
 }
