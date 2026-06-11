@@ -31,9 +31,16 @@ export function Header() {
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-8">
           <Link
             to="/"
-            className="text-sm font-semibold tracking-[0.3em] uppercase text-black"
+            className="flex items-center gap-3"
           >
-            NOEMA
+            <img
+              src="/noema-icon.png"
+              alt="NOEMA Ensemble"
+              className="h-10 w-auto"
+            />
+            <span className="text-sm font-semibold tracking-[0.3em] uppercase text-black">
+              NOEMA
+            </span>
           </Link>
 
           <nav className="hidden items-center gap-10 lg:flex">

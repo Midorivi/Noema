@@ -26,9 +26,11 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-8 py-20">
         <div className="grid gap-16 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <p className="mb-6 text-xs font-semibold tracking-[0.3em] uppercase text-white">
-              NOEMA
-            </p>
+            <img
+              src="/noema-icon-transparent.png"
+              alt="NOEMA Ensemble"
+              className="mb-6 h-12 w-auto brightness-0 invert"
+            />
             <p className="text-sm leading-relaxed text-white/50">
               A Christian music ministry where professionals and non-professionals
               come together to sing praises and serve the community through music.

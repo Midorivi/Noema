@@ -17,14 +17,13 @@ export function Home() {
     <>
       <section className="flex min-h-screen flex-col items-start justify-center px-8 pt-20 md:px-16 lg:px-24">
         <div className="max-w-4xl">
-          <p className="mb-6 text-xs font-medium tracking-[0.3em] uppercase text-black/60 animate-fade-in">
-            Music Ministry
-          </p>
-          <h1 className="mb-8 text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl lg:text-8xl animate-fade-up">
-            NOEMA
-            <br />
-            <span className="text-black/60">Ensemble</span>
-          </h1>
+          <div className="mb-10 animate-fade-up">
+            <img
+              src="/noema-logo.png"
+              alt="NOEMA Ensemble — meaning beyond music"
+              className="h-48 w-auto sm:h-56 md:h-64 lg:h-72"
+            />
+          </div>
           <p className="mb-12 max-w-xl text-lg leading-relaxed text-black/70 animate-fade-up" style={{ animationDelay: "200ms" }}>
             A Christian music ministry where professionals and non-professionals
             come together to sing praises and serve the community through music.
