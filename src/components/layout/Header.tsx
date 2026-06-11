@@ -28,17 +28,17 @@ export function Header() {
   return (
     <>
       <header className="fixed top-0 z-50 w-full border-b border-black/15 bg-white/80 backdrop-blur-md">
-        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-8">
+        <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-8">
           <Link
             to="/"
-            className="flex items-center gap-3"
+            className="flex items-center gap-2.5"
           >
             <img
               src="/noema-icon.png"
               alt="NOEMA Ensemble"
-              className="h-10 w-auto"
+              className="h-7 w-auto"
             />
-            <span className="text-sm font-semibold tracking-[0.3em] uppercase text-black">
+            <span className="text-xs font-semibold tracking-[0.3em] uppercase text-black">
               NOEMA
             </span>
           </Link>

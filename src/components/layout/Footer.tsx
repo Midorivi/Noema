@@ -27,9 +27,9 @@ export function Footer() {
         <div className="grid gap-16 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <img
-              src="/noema-icon-transparent.png"
+              src="/noema-logo.png"
               alt="NOEMA Ensemble"
-              className="mb-6 h-12 w-auto brightness-0 invert"
+              className="mb-6 h-16 w-auto"
             />
             <p className="text-sm leading-relaxed text-white/50">
               A Christian music ministry where professionals and non-professionals

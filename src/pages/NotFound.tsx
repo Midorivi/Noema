@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export function NotFound() {
   return (
-    <section className="flex min-h-screen flex-col items-start justify-center px-8 pt-20 md:px-16 lg:px-24">
+    <section className="flex min-h-screen flex-col items-start justify-center px-8 pt-14 md:px-16 lg:px-24">
       <p className="mb-4 text-xs font-medium tracking-[0.3em] uppercase text-black/60">Error</p>
       <h1 className="mb-4 text-8xl font-bold tracking-tight md:text-9xl">404</h1>
       <p className="mb-10 max-w-md text-lg text-black/70">
