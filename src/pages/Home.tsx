@@ -15,28 +15,21 @@ const values = [
 export function Home() {
   return (
     <>
-      <section className="flex min-h-screen flex-col items-start justify-center px-8 pt-14 md:px-16 lg:px-24">
-        <div className="max-w-4xl">
-          <div className="mb-8 animate-fade-in">
+      <section className="flex min-h-screen flex-col items-center justify-center px-8 pt-14">
+        <div className="flex flex-col items-center text-center">
+          <div className="animate-fade-up">
             <img
-              src="/noema-icon.png"
-              alt=""
-              className="h-24 w-auto sm:h-28 md:h-32"
+              src="/noema-logo.png"
+              alt="NOEMA Ensemble — meaning beyond music"
+              className="h-56 w-auto sm:h-64 md:h-72 lg:h-80"
             />
           </div>
-          <h1 className="mb-8 text-5xl font-bold leading-[1.05] tracking-tight md:text-7xl lg:text-8xl animate-fade-up">
-            NOEMA
-            <br />
-            <span className="text-black/60">Ensemble</span>
-          </h1>
-          <p className="mb-4 font-serif text-base italic text-black/50 animate-fade-up" style={{ animationDelay: "100ms" }}>
-            meaning beyond music
-          </p>
-          <p className="mb-12 max-w-xl text-lg leading-relaxed text-black/70 animate-fade-up" style={{ animationDelay: "200ms" }}>
+          <div className="mt-10 h-px w-16 bg-black/20 animate-fade-in" style={{ animationDelay: "300ms" }} />
+          <p className="mt-10 max-w-lg text-lg leading-relaxed text-black/60 animate-fade-up" style={{ animationDelay: "400ms" }}>
             A Christian music ministry where professionals and non-professionals
             come together to sing praises and serve the community through music.
           </p>
-          <div className="flex flex-col gap-4 sm:flex-row animate-fade-up" style={{ animationDelay: "400ms" }}>
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row animate-fade-up" style={{ animationDelay: "600ms" }}>
             <Button asChild size="lg" className="h-12 rounded-none border border-black bg-black px-10 text-xs font-medium tracking-widest uppercase text-white hover:bg-transparent hover:text-black transition-all duration-300">
               <Link to="/get-involved">Get Involved</Link>
             </Button>
