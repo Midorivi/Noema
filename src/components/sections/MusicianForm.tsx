@@ -27,7 +27,7 @@ export function MusicianForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-[1px] bg-black/8">
+    <form onSubmit={handleSubmit} className="space-y-6">
       <p className="text-sm text-black/60">We welcome both music majors and non-music majors who share a passion for music, service, and community.</p>
       <div className="grid gap-6 sm:grid-cols-2">
         <div><Label htmlFor="m-first" className="text-black/60">First Name</Label><Input id="m-first" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
@@ -66,7 +66,7 @@ export function MusicianForm() {
       </fieldset>
       <div><Label htmlFor="m-about" className="text-black/60">Tell us about yourself</Label><Textarea id="m-about" rows={3} className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
       <div><Label htmlFor="m-why" className="text-black/60">Why join NOEMA Ensemble?</Label><Textarea id="m-why" required rows={3} className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
-      <Button type="submit" size="lg" className="w-full rounded-none border border-black bg-black text-xs font-medium tracking-widest uppercase text-white hover:bg-transparent hover:text-black transition-all duration-300">Submit Application</Button>
+      <Button type="submit" size="lg" className="mt-2 w-full rounded-none border border-black bg-black text-xs font-medium tracking-widest uppercase text-white hover:bg-transparent hover:text-black transition-all duration-300">Submit Application</Button>
     </form>
   );
 }

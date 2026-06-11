@@ -26,7 +26,7 @@ export function StudentForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-[1px] bg-black/8">
+    <form onSubmit={handleSubmit} className="space-y-6">
       <div>
         <Label htmlFor="s-program" className="text-black/60">Program</Label>
         <select id="s-program" required className="mt-2 flex h-10 w-full rounded-none border border-black/20 bg-transparent px-3 py-2 text-sm text-black outline-none focus:border-black">
@@ -61,7 +61,7 @@ export function StudentForm() {
         </select>
       </div>
       {location === "Other" && <div><Label htmlFor="s-loc-other" className="text-black/60">Specify Location</Label><Input id="s-loc-other" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>}
-      <Button type="submit" size="lg" className="w-full rounded-none border border-black bg-black text-xs font-medium tracking-widest uppercase text-white hover:bg-transparent hover:text-black transition-all duration-300">Submit Application</Button>
+      <Button type="submit" size="lg" className="mt-2 w-full rounded-none border border-black bg-black text-xs font-medium tracking-widest uppercase text-white hover:bg-transparent hover:text-black transition-all duration-300">Submit Application</Button>
     </form>
   );
 }

@@ -26,7 +26,7 @@ export function VolunteerForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-[1px] bg-black/8">
+    <form onSubmit={handleSubmit} className="space-y-6">
       <p className="text-sm text-black/60">Volunteers play an important role in supporting our programs, events, and community outreach activities.</p>
       <div className="grid gap-6 sm:grid-cols-2">
         <div><Label htmlFor="v-first" className="text-black/60">First Name</Label><Input id="v-first" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
@@ -57,7 +57,7 @@ export function VolunteerForm() {
       </div>
       <div><Label htmlFor="v-why" className="text-black/60">Why volunteer with us?</Label><Textarea id="v-why" rows={3} className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
       <div><Label htmlFor="v-exp" className="text-black/60">Relevant experience or skills?</Label><Textarea id="v-exp" rows={3} className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
-      <Button type="submit" size="lg" className="w-full rounded-none border border-black bg-black text-xs font-medium tracking-widest uppercase text-white hover:bg-transparent hover:text-black transition-all duration-300">Submit Application</Button>
+      <Button type="submit" size="lg" className="mt-2 w-full rounded-none border border-black bg-black text-xs font-medium tracking-widest uppercase text-white hover:bg-transparent hover:text-black transition-all duration-300">Submit Application</Button>
     </form>
   );
 }

@@ -75,12 +75,12 @@ export function Contact() {
                   <p className="text-sm text-black/70">We&apos;ll get back to you soon.</p>
                 </div>
               ) : (
-                <form onSubmit={handleContact} className="space-y-[1px] bg-black/8">
+                <form onSubmit={handleContact} className="space-y-6">
                   <div><Label htmlFor="c-name" className="text-black/60">Name</Label><Input id="c-name" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
                   <div><Label htmlFor="c-email" className="text-black/60">Email</Label><Input id="c-email" type="email" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
                   <div><Label htmlFor="c-subject" className="text-black/60">Subject</Label><Input id="c-subject" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
                   <div><Label htmlFor="c-msg" className="text-black/60">Message</Label><Textarea id="c-msg" required rows={5} className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
-                  <Button type="submit" size="lg" className="w-full rounded-none border border-black bg-black text-xs font-medium tracking-widest uppercase text-white hover:bg-transparent hover:text-black transition-all duration-300">Send Message</Button>
+                  <Button type="submit" size="lg" className="mt-2 w-full rounded-none border border-black bg-black text-xs font-medium tracking-widest uppercase text-white hover:bg-transparent hover:text-black transition-all duration-300">Send Message</Button>
                 </form>
               )}
             </div>
@@ -101,13 +101,13 @@ export function Contact() {
                   <p className="text-sm text-black/70">Thank you for your interest.</p>
                 </div>
               ) : (
-                <form onSubmit={handleSubscribe} className="space-y-[1px] bg-black/8">
+                <form onSubmit={handleSubscribe} className="space-y-6">
                   <div className="grid gap-6 sm:grid-cols-2">
                     <div><Label htmlFor="sub-f" className="text-black/60">First Name</Label><Input id="sub-f" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
                     <div><Label htmlFor="sub-l" className="text-black/60">Last Name</Label><Input id="sub-l" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
                   </div>
                   <div><Label htmlFor="sub-e" className="text-black/60">Email</Label><Input id="sub-e" type="email" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
-                  <Button type="submit" size="lg" className="w-full rounded-none border border-black bg-black text-xs font-medium tracking-widest uppercase text-white hover:bg-transparent hover:text-black transition-all duration-300">Subscribe</Button>
+                  <Button type="submit" size="lg" className="mt-2 w-full rounded-none border border-black bg-black text-xs font-medium tracking-widest uppercase text-white hover:bg-transparent hover:text-black transition-all duration-300">Subscribe</Button>
                 </form>
               )}
             </div>
