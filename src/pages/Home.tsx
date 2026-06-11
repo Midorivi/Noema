@@ -15,7 +15,7 @@ const values = [
 export function Home() {
   return (
     <>
-      <section className="flex min-h-screen flex-col items-center justify-center px-8 pt-14">
+      <section className="flex min-h-screen flex-col items-center justify-center px-8 pt-16">
         <div className="flex flex-col items-center text-center">
           <div className="animate-fade-up">
             <img

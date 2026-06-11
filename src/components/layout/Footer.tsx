@@ -22,23 +22,23 @@ function YoutubeIcon() {
 
 export function Footer() {
   return (
-    <footer className="bg-black text-white">
+    <footer className="border-t border-black/15 bg-stone-50">
       <div className="mx-auto max-w-7xl px-8 py-20">
         <div className="grid gap-16 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <img
               src="/noema-logo.png"
               alt="NOEMA Ensemble"
-              className="mb-6 h-16 w-auto"
+              className="mb-6 h-24 w-auto"
             />
-            <p className="text-sm leading-relaxed text-white/50">
+            <p className="text-sm leading-relaxed text-black/50">
               A Christian music ministry where professionals and non-professionals
               come together to sing praises and serve the community through music.
             </p>
           </div>
 
           <div>
-            <p className="mb-6 text-xs font-semibold tracking-[0.2em] uppercase text-white/50">
+            <p className="mb-6 text-xs font-semibold tracking-[0.2em] uppercase text-black/40">
               Navigate
             </p>
             <nav className="flex flex-col gap-3">
@@ -51,7 +51,7 @@ export function Footer() {
                 <Link
                   key={link.to}
                   to={link.to}
-                  className="text-sm text-white/50 transition-colors duration-300 hover:text-white"
+                  className="text-sm text-black/50 transition-colors duration-300 hover:text-black"
                 >
                   {link.label}
                 </Link>
@@ -60,20 +60,20 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="mb-6 text-xs font-semibold tracking-[0.2em] uppercase text-white/50">
+            <p className="mb-6 text-xs font-semibold tracking-[0.2em] uppercase text-black/40">
               Contact
             </p>
-            <div className="flex flex-col gap-4 text-sm text-white/50">
+            <div className="flex flex-col gap-4 text-sm text-black/50">
               <a
                 href="mailto:noema.ensemble@gmail.com"
-                className="flex items-center gap-3 transition-colors duration-300 hover:text-white"
+                className="flex items-center gap-3 transition-colors duration-300 hover:text-black"
               >
                 <Mail size={14} className="shrink-0" />
                 noema.ensemble@gmail.com
               </a>
               <a
                 href="tel:+19176889738"
-                className="flex items-center gap-3 transition-colors duration-300 hover:text-white"
+                className="flex items-center gap-3 transition-colors duration-300 hover:text-black"
               >
                 <Phone size={14} className="shrink-0" />
                 +1-917-688-9738
@@ -86,7 +86,7 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="mb-6 text-xs font-semibold tracking-[0.2em] uppercase text-white/50">
+            <p className="mb-6 text-xs font-semibold tracking-[0.2em] uppercase text-black/40">
               Follow
             </p>
             <div className="flex gap-6">
@@ -94,7 +94,7 @@ export function Footer() {
                 href="https://instagram.com/noema.ensemble"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/50 transition-colors duration-300 hover:text-white"
+                className="text-black/50 transition-colors duration-300 hover:text-black"
                 aria-label="Instagram"
               >
                 <InstagramIcon />
@@ -103,7 +103,7 @@ export function Footer() {
                 href="https://www.youtube.com/@Noema.ensemble"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white/50 transition-colors duration-300 hover:text-white"
+                className="text-black/50 transition-colors duration-300 hover:text-black"
                 aria-label="YouTube"
               >
                 <YoutubeIcon />
@@ -112,7 +112,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-20 border-t border-white/15 pt-8 text-xs text-white/25">
+        <div className="mt-20 border-t border-black/10 pt-8 text-xs text-black/25">
           &copy; {new Date().getFullYear()} NOEMA Ensemble. All rights reserved.
         </div>
       </div>
