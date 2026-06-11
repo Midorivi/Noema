@@ -20,9 +20,11 @@ export function Preloader() {
         phase === "fading" ? "opacity-0" : "opacity-100"
       }`}
     >
-      <p className="text-sm font-semibold tracking-[0.4em] uppercase text-black animate-fade-in">
-        NOEMA
-      </p>
+      <img
+        src="/noema-logo.png"
+        alt="NOEMA Ensemble"
+        className="h-24 w-auto animate-fade-in"
+      />
     </div>
   );
 }
