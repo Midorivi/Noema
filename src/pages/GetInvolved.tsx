@@ -15,7 +15,7 @@ const monthlyTiers = [
   { name: "Partner", amount: 50 },
   { name: "Patron", amount: 100 },
 ];
-const donationCategories = ["Music Education", "Community Outreach", "Concert Ministry", "Operational Support", "General (to all)", "Custom (specific)"];
+const donationCategories = ["Music Education", "Community Outreach", "Concerts & Performances", "Operational Support", "General (to all)", "Custom (specific)"];
 
 export function GetInvolved() {
   const [selectedAmount, setSelectedAmount] = useState<number | "custom">(50);
@@ -39,8 +39,8 @@ export function GetInvolved() {
             <p className="text-xs font-medium tracking-[0.3em] uppercase text-black/60">Donate</p>
             <div className="max-w-xl">
               <p className="mb-10 text-base text-black/60">
-                Your generosity helps us share hope, encouragement, and the love of
-                Christ through music, education, and community outreach.
+                Your generosity helps us share healing, hope, and encouragement
+                through music, education, and community outreach.
               </p>
 
               <div className="mb-8 flex gap-4">

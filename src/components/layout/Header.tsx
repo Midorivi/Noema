@@ -1,12 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
+
+const aboutLinks = [
+  { label: "Who We Are", to: "/who-we-are" },
+  { label: "Our Story", to: "/our-story" },
+];
 
 const navLinks = [
-  { label: "Home", to: "/" },
-  { label: "About", to: "/about" },
   { label: "Mission", to: "/mission" },
-  { label: "Programs", to: "/programs" },
   { label: "Events", to: "/events" },
   { label: "Get Involved", to: "/get-involved" },
   { label: "Contact", to: "/contact" },
@@ -14,10 +16,15 @@ const navLinks = [
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const location = useLocation();
+  const aboutActive = aboutLinks.some((l) => location.pathname === l.to);
 
   useEffect(() => {
     setMobileOpen(false);
+    setAboutOpen(false);
+    setMobileAboutOpen(false);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -38,6 +45,51 @@ export function Header() {
           </Link>
 
           <nav className="hidden items-center gap-10 lg:flex">
+            <div
+              className="relative"
+              onMouseEnter={() => setAboutOpen(true)}
+              onMouseLeave={() => setAboutOpen(false)}
+            >
+              <button
+                type="button"
+                aria-haspopup="true"
+                aria-expanded={aboutOpen}
+                data-active={aboutActive}
+                className={`nav-link relative flex items-center gap-1.5 text-xs font-medium tracking-widest uppercase transition-colors duration-300 ${
+                  aboutActive ? "text-black" : "text-black/70 hover:text-black"
+                }`}
+              >
+                About Us
+                <ChevronDown
+                  size={12}
+                  className={`transition-transform duration-300 ${aboutOpen ? "rotate-180" : ""}`}
+                />
+              </button>
+              <div
+                className={`absolute left-1/2 top-full -translate-x-1/2 pt-5 transition-all duration-300 ${
+                  aboutOpen
+                    ? "visible translate-y-0 opacity-100"
+                    : "invisible -translate-y-2 opacity-0"
+                }`}
+              >
+                <div className="flex w-44 flex-col border border-black/15 bg-white/95 backdrop-blur-md shadow-sm">
+                  {aboutLinks.map((link) => (
+                    <Link
+                      key={link.to}
+                      to={link.to}
+                      className={`border-b border-black/10 px-6 py-4 text-xs font-medium tracking-widest uppercase transition-colors duration-300 last:border-b-0 ${
+                        location.pathname === link.to
+                          ? "text-black"
+                          : "text-black/60 hover:bg-black/5 hover:text-black"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
             {navLinks.map((link) => (
               <Link
                 key={link.to}
@@ -78,6 +130,49 @@ export function Header() {
         }`}
       >
         <nav className="flex h-full flex-col justify-center px-8">
+          <div
+            className={`border-b border-black/15 transition-all duration-500 ${
+              mobileOpen ? "translate-x-0 opacity-100" : "translate-x-8 opacity-0"
+            }`}
+            style={{ transitionDelay: mobileOpen ? "0ms" : "0ms" }}
+          >
+            <button
+              type="button"
+              onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
+              aria-expanded={mobileAboutOpen}
+              className={`flex w-full items-center justify-between py-5 text-2xl font-light tracking-wide ${
+                aboutActive ? "text-black" : "text-black/60"
+              }`}
+            >
+              About Us
+              <ChevronDown
+                size={20}
+                className={`transition-transform duration-300 ${mobileAboutOpen ? "rotate-180" : ""}`}
+              />
+            </button>
+            <div
+              className={`grid transition-all duration-300 ${
+                mobileAboutOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+              }`}
+            >
+              <div className="overflow-hidden">
+                <div className="flex flex-col pb-5">
+                  {aboutLinks.map((link) => (
+                    <Link
+                      key={link.to}
+                      to={link.to}
+                      onClick={() => setMobileOpen(false)}
+                      className={`py-3 pl-6 text-lg font-light tracking-wide transition-colors duration-300 ${
+                        location.pathname === link.to ? "text-black" : "text-black/50"
+                      }`}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
           {navLinks.map((link, i) => (
             <Link
               key={link.to}
@@ -92,7 +187,7 @@ export function Header() {
                   ? "text-black"
                   : "text-black/60"
               }`}
-              style={{ transitionDelay: mobileOpen ? `${i * 50}ms` : "0ms" }}
+              style={{ transitionDelay: mobileOpen ? `${(i + 1) * 50}ms` : "0ms" }}
             >
               {link.label}
             </Link>

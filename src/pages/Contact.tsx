@@ -93,7 +93,7 @@ export function Contact() {
           <div className="grid gap-16 lg:grid-cols-[1fr_2fr]">
             <p className="text-xs font-medium tracking-[0.3em] uppercase text-black/60">Subscribe</p>
             <div className="max-w-xl">
-              <p className="mb-8 text-base text-black/60">Stay connected with updates on events, programs, and ministry news.</p>
+              <p className="mb-8 text-base text-black/60">Stay connected with updates on events, programs, and community news.</p>
               {subscribed ? (
                 <div className="flex flex-col items-center py-12 text-center">
                   <Check className="mb-4 h-10 w-10 text-black/60" />

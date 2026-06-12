@@ -32,8 +32,9 @@ export function Footer() {
               className="mb-6 h-24 w-auto"
             />
             <p className="text-sm leading-relaxed text-black/50">
-              A Christian music ministry where professionals and non-professionals
-              come together to sing praises and serve the community through music.
+              A nonprofit arts community where professionals and non-professionals
+              come together to pursue musical excellence and serve the community
+              through music.
             </p>
           </div>
 
@@ -43,8 +44,9 @@ export function Footer() {
             </p>
             <nav className="flex flex-col gap-3">
               {[
-                { label: "About", to: "/about" },
-                { label: "Programs", to: "/programs" },
+                { label: "Who We Are", to: "/who-we-are" },
+                { label: "Our Story", to: "/our-story" },
+                { label: "Mission", to: "/mission" },
                 { label: "Events", to: "/events" },
                 { label: "Get Involved", to: "/get-involved" },
               ].map((link) => (
