@@ -8,7 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Check } from "lucide-react";
 
 const locationOptions = ["CA", "NY", "Korea", "Other"];
-const participationOptions = ["Performance", "Community Outreach", "Music Education Programs", "Music Ministry", "Special Events"];
+const participationOptions = ["Performance", "Community Outreach", "Music Education Programs", "Special Events"];
 
 export function MusicianForm() {
   const [submitted, setSubmitted] = useState(false);

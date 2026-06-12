@@ -4,12 +4,12 @@ import { FadeIn } from "@/components/ui/fade-in";
 import { ArrowRight } from "lucide-react";
 
 const values = [
-  { title: "Faith", text: "God at the center of all ministry" },
-  { title: "Excellence", text: "Musical and personal growth" },
-  { title: "Service", text: "Serving through music" },
-  { title: "Community", text: "Growing together" },
-  { title: "Love", text: "Practicing Christ\u2019s love" },
-  { title: "Hope", text: "Comfort through music" },
+  { title: "Excellence", text: "The highest standards in music and education" },
+  { title: "Compassion", text: "Comfort, encouragement, and healing through music" },
+  { title: "Community", text: "Meaningful relationships, stronger communities" },
+  { title: "Service", text: "Using our gifts to positively impact others" },
+  { title: "Growth", text: "Discovering potential, continuing to learn" },
+  { title: "Hope", text: "Inspiring hope and resilience through music" },
 ];
 
 export function Home() {
@@ -26,15 +26,16 @@ export function Home() {
           </div>
           <div className="mt-10 h-px w-16 bg-black/20 animate-fade-in" style={{ animationDelay: "300ms" }} />
           <p className="mt-10 max-w-lg text-lg leading-relaxed text-black/60 animate-fade-up" style={{ animationDelay: "400ms" }}>
-            A Christian music ministry where professionals and non-professionals
-            come together to sing praises and serve the community through music.
+            A nonprofit arts community where professionals and non-professionals
+            come together to pursue musical excellence and serve the community
+            through music.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row animate-fade-up" style={{ animationDelay: "600ms" }}>
             <Button asChild size="lg" className="h-12 rounded-none border border-black bg-black px-10 text-xs font-medium tracking-widest uppercase text-white hover:bg-transparent hover:text-black transition-all duration-300">
               <Link to="/get-involved">Get Involved</Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="h-12 rounded-none border-black/30 bg-transparent px-10 text-xs font-medium tracking-widest uppercase text-black hover:border-black hover:bg-black hover:text-white transition-all duration-300">
-              <Link to="/about">Learn More</Link>
+              <Link to="/who-we-are">Learn More</Link>
             </Button>
           </div>
         </div>
@@ -45,9 +46,8 @@ export function Home() {
           <div className="max-w-3xl">
             <p className="mb-4 text-xs font-medium tracking-[0.3em] uppercase text-black/60">Our Mission</p>
             <p className="text-2xl font-light leading-relaxed text-black/80 md:text-3xl">
-              To glorify God by bringing together musicians and people of diverse
-              backgrounds to serve communities through music, education, outreach,
-              and acts of love.
+              To pursue musical excellence while bringing healing, hope, and
+              encouragement through music, education, and service.
             </p>
           </div>
         </FadeIn>
@@ -61,7 +61,7 @@ export function Home() {
           {[
             { title: "Music Education", text: "Workshops, masterclasses, and training programs designed to develop musical talents and build ensemble experience." },
             { title: "Community Outreach", text: "Nursing home concerts, service events, and charity performances that deliver comfort and joy through music." },
-            { title: "Concert Ministry", text: "Seasonal concerts, mission tours, and community performances that share hope and love through music." },
+            { title: "Concerts & Performances", text: "Seasonal concerts, tours, and community performances that share hope and encouragement through music." },
           ].map((item, i) => (
             <FadeIn key={item.title} delay={i * 150}>
               <div className="bg-background p-10 md:p-12">

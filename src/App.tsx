@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -8,9 +8,9 @@ import { BackToTop } from "@/components/ui/back-to-top";
 import { Preloader } from "@/components/ui/preloader";
 import { PageTransition } from "@/components/ui/page-transition";
 import { Home } from "@/pages/Home";
-import { About } from "@/pages/About";
+import { WhoWeAre } from "@/pages/WhoWeAre";
+import { OurStory } from "@/pages/OurStory";
 import { Mission } from "@/pages/Mission";
-import { Programs } from "@/pages/Programs";
 import { Events } from "@/pages/Events";
 import { GetInvolved } from "@/pages/GetInvolved";
 import { Contact } from "@/pages/Contact";
@@ -31,9 +31,11 @@ function AppRoutes() {
     <PageTransition key={location.pathname}>
       <Routes location={location}>
         <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/who-we-are" element={<WhoWeAre />} />
+        <Route path="/our-story" element={<OurStory />} />
+        <Route path="/about" element={<Navigate to="/who-we-are" replace />} />
         <Route path="/mission" element={<Mission />} />
-        <Route path="/programs" element={<Programs />} />
+        <Route path="/programs" element={<Navigate to="/events" replace />} />
         <Route path="/events" element={<Events />} />
         <Route path="/get-involved" element={<GetInvolved />} />
         <Route path="/contact" element={<Contact />} />
