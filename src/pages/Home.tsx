@@ -2,17 +2,11 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { FadeIn } from "@/components/ui/fade-in";
 import { ArrowRight } from "lucide-react";
-
-const values = [
-  { title: "Excellence", text: "The highest standards in music and education" },
-  { title: "Compassion", text: "Comfort, encouragement, and healing through music" },
-  { title: "Community", text: "Meaningful relationships, stronger communities" },
-  { title: "Service", text: "Using our gifts to positively impact others" },
-  { title: "Growth", text: "Discovering potential, continuing to learn" },
-  { title: "Hope", text: "Inspiring hope and resilience through music" },
-];
+import { useLanguage } from "@/lib/i18n";
 
 export function Home() {
+  const { t, dict } = useLanguage();
+
   return (
     <>
       <section className="flex min-h-screen flex-col items-center justify-center px-8 pt-16">
@@ -20,22 +14,20 @@ export function Home() {
           <div className="animate-fade-up">
             <img
               src="/noema-logo.png"
-              alt="NOEMA Ensemble — meaning beyond music"
+              alt={t("home.hero.logoAlt")}
               className="h-56 w-auto sm:h-64 md:h-72 lg:h-80"
             />
           </div>
           <div className="mt-10 h-px w-16 bg-black/20 animate-fade-in" style={{ animationDelay: "300ms" }} />
           <p className="mt-10 max-w-lg text-lg leading-relaxed text-black/60 animate-fade-up" style={{ animationDelay: "400ms" }}>
-            A nonprofit arts community where professionals and non-professionals
-            come together to pursue musical excellence and serve the community
-            through music.
+            {t("home.hero.tagline")}
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row animate-fade-up" style={{ animationDelay: "600ms" }}>
             <Button asChild size="lg" className="h-12 rounded-none border border-black bg-black px-10 text-xs font-medium tracking-widest uppercase text-white hover:bg-transparent hover:text-black transition-all duration-300">
-              <Link to="/get-involved">Get Involved</Link>
+              <Link to="/get-involved">{t("home.hero.getInvolved")}</Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="h-12 rounded-none border-black/30 bg-transparent px-10 text-xs font-medium tracking-widest uppercase text-black hover:border-black hover:bg-black hover:text-white transition-all duration-300">
-              <Link to="/who-we-are">Learn More</Link>
+              <Link to="/who-we-are">{t("home.hero.learnMore")}</Link>
             </Button>
           </div>
         </div>
@@ -44,10 +36,9 @@ export function Home() {
       <section className="border-t border-black/15 px-8 py-32 md:px-16 lg:px-24">
         <FadeIn>
           <div className="max-w-3xl">
-            <p className="mb-4 text-xs font-medium tracking-[0.3em] uppercase text-black/60">Our Mission</p>
+            <p className="mb-4 text-xs font-medium tracking-[0.3em] uppercase text-black/60">{t("home.mission.label")}</p>
             <p className="text-2xl font-light leading-relaxed text-black/80 md:text-3xl">
-              To pursue musical excellence while bringing healing, hope, and
-              encouragement through music, education, and service.
+              {t("home.mission.text")}
             </p>
           </div>
         </FadeIn>
@@ -55,15 +46,11 @@ export function Home() {
 
       <section className="border-t border-black/15 px-8 py-32 md:px-16 lg:px-24">
         <FadeIn>
-          <p className="mb-16 text-xs font-medium tracking-[0.3em] uppercase text-black/60">What We Do</p>
+          <p className="mb-16 text-xs font-medium tracking-[0.3em] uppercase text-black/60">{t("home.whatWeDo.label")}</p>
         </FadeIn>
         <div className="grid md:grid-cols-3 divide-x divide-black/10">
-          {[
-            { title: "Music Education", text: "Workshops, masterclasses, and training programs designed to develop musical talents and build ensemble experience." },
-            { title: "Community Outreach", text: "Nursing home concerts, service events, and charity performances that deliver comfort and joy through music." },
-            { title: "Concerts & Performances", text: "Seasonal concerts, tours, and community performances that share hope and encouragement through music." },
-          ].map((item, i) => (
-            <FadeIn key={item.title} delay={i * 150}>
+          {dict.home.whatWeDo.items.map((item, i) => (
+            <FadeIn key={i} delay={i * 150}>
               <div className="bg-background p-10 md:p-12">
                 <h3 className="mb-4 text-lg font-semibold">{item.title}</h3>
                 <p className="text-sm leading-relaxed text-black/70">{item.text}</p>
@@ -75,11 +62,11 @@ export function Home() {
 
       <section className="border-t border-black/15 px-8 py-32 md:px-16 lg:px-24">
         <FadeIn>
-          <p className="mb-16 text-xs font-medium tracking-[0.3em] uppercase text-black/60">Our Values</p>
+          <p className="mb-16 text-xs font-medium tracking-[0.3em] uppercase text-black/60">{t("home.values.label")}</p>
         </FadeIn>
         <div className="grid grid-cols-2 gap-y-12 md:grid-cols-3 lg:grid-cols-6">
-          {values.map((v, i) => (
-            <FadeIn key={v.title} delay={i * 100}>
+          {dict.home.values.items.map((v, i) => (
+            <FadeIn key={i} delay={i * 100}>
               <div>
                 <p className="mb-2 text-sm font-semibold">{v.title}</p>
                 <p className="text-xs text-black/60">{v.text}</p>
@@ -92,14 +79,13 @@ export function Home() {
       <section className="border-t border-black/15 px-8 py-32 md:px-16 lg:px-24">
         <FadeIn>
           <div className="max-w-2xl">
-            <h2 className="mb-6 text-3xl font-bold tracking-tight md:text-4xl">Join Our Community</h2>
+            <h2 className="mb-6 text-3xl font-bold tracking-tight md:text-4xl">{t("home.join.title")}</h2>
             <p className="mb-10 text-lg text-black/70">
-              Whether you&apos;re a seasoned musician or just starting out,
-              there&apos;s a place for you at NOEMA Ensemble.
+              {t("home.join.text")}
             </p>
             <Button asChild size="lg" className="h-12 rounded-none border border-black bg-black px-10 text-xs font-medium tracking-widest uppercase text-white hover:bg-transparent hover:text-black transition-all duration-300">
               <Link to="/get-involved">
-                Apply Now <ArrowRight className="ml-3 h-4 w-4" />
+                {t("home.join.cta")} <ArrowRight className="ml-3 h-4 w-4" />
               </Link>
             </Button>
           </div>

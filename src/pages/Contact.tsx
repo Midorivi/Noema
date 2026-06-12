@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { FadeIn } from "@/components/ui/fade-in";
 import { Mail, Phone, MapPin, Check } from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
 
 function InstagramIcon() {
   return (
@@ -24,6 +25,7 @@ function YoutubeIcon() {
 }
 
 export function Contact() {
+  const { t } = useLanguage();
   const [contactSent, setContactSent] = useState(false);
   const [subscribed, setSubscribed] = useState(false);
 
@@ -33,11 +35,11 @@ export function Contact() {
   return (
     <>
       <section className="flex min-h-[70vh] flex-col justify-end px-8 pb-20 pt-28 md:px-16 lg:px-24">
-        <p className="mb-4 text-xs font-medium tracking-[0.3em] uppercase text-black/60 animate-fade-in">Contact</p>
+        <p className="mb-4 text-xs font-medium tracking-[0.3em] uppercase text-black/60 animate-fade-in">{t("contact.hero.label")}</p>
         <h1 className="max-w-3xl text-4xl font-bold leading-tight tracking-tight md:text-6xl lg:text-7xl animate-fade-up">
-          We&apos;d love
+          {t("contact.hero.title1")}
           <br />
-          <span className="text-black/60">to hear from you</span>
+          <span className="text-black/60">{t("contact.hero.title2")}</span>
         </h1>
       </section>
 
@@ -45,9 +47,9 @@ export function Contact() {
         <FadeIn>
           <div className="grid md:grid-cols-3 divide-x divide-black/10">
             {[
-              { icon: Mail, label: "Email", value: "noema.ensemble@gmail.com", href: "mailto:noema.ensemble@gmail.com" },
-              { icon: Phone, label: "Phone", value: "+1-917-688-9738", href: "tel:+19176889738" },
-              { icon: MapPin, label: "Address", value: "11681 Trask Avenue, Garden Grove, CA 92843" },
+              { icon: Mail, label: t("contact.info.email"), value: "noema.ensemble@gmail.com", href: "mailto:noema.ensemble@gmail.com" },
+              { icon: Phone, label: t("contact.info.phone"), value: "+1-917-688-9738", href: "tel:+191****9738" },
+              { icon: MapPin, label: t("contact.info.address"), value: "11681 Trask Avenue, Garden Grove, CA 92843" },
             ].map((item) => (
               <div key={item.label} className="bg-background p-10 md:p-14">
                 <item.icon className="mb-6 h-5 w-5 text-black/60" />
@@ -66,21 +68,21 @@ export function Contact() {
       <section className="border-t border-black/15 px-8 py-32 md:px-16 lg:px-24">
         <FadeIn>
           <div className="grid gap-16 lg:grid-cols-[1fr_2fr]">
-            <p className="text-xs font-medium tracking-[0.3em] uppercase text-black/60">Message</p>
+            <p className="text-xs font-medium tracking-[0.3em] uppercase text-black/60">{t("contact.message.label")}</p>
             <div className="max-w-xl">
               {contactSent ? (
                 <div className="flex flex-col items-center py-16 text-center">
                   <Check className="mb-4 h-10 w-10 text-black/60" />
-                  <p className="text-lg font-medium">Thank you for reaching out!</p>
-                  <p className="text-sm text-black/70">We&apos;ll get back to you soon.</p>
+                  <p className="text-lg font-medium">{t("contact.message.successTitle")}</p>
+                  <p className="text-sm text-black/70">{t("contact.message.successText")}</p>
                 </div>
               ) : (
                 <form onSubmit={handleContact} className="space-y-6">
-                  <div><Label htmlFor="c-name" className="text-black/60">Name</Label><Input id="c-name" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
-                  <div><Label htmlFor="c-email" className="text-black/60">Email</Label><Input id="c-email" type="email" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
-                  <div><Label htmlFor="c-subject" className="text-black/60">Subject</Label><Input id="c-subject" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
-                  <div><Label htmlFor="c-msg" className="text-black/60">Message</Label><Textarea id="c-msg" required rows={5} className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
-                  <Button type="submit" size="lg" className="mt-2 w-full rounded-none border border-black bg-black text-xs font-medium tracking-widest uppercase text-white hover:bg-transparent hover:text-black transition-all duration-300">Send Message</Button>
+                  <div><Label htmlFor="c-name" className="text-black/60">{t("contact.message.name")}</Label><Input id="c-name" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
+                  <div><Label htmlFor="c-email" className="text-black/60">{t("contact.message.email")}</Label><Input id="c-email" type="email" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
+                  <div><Label htmlFor="c-subject" className="text-black/60">{t("contact.message.subject")}</Label><Input id="c-subject" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
+                  <div><Label htmlFor="c-msg" className="text-black/60">{t("contact.message.message")}</Label><Textarea id="c-msg" required rows={5} className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
+                  <Button type="submit" size="lg" className="mt-2 w-full rounded-none border border-black bg-black text-xs font-medium tracking-widest uppercase text-white hover:bg-transparent hover:text-black transition-all duration-300">{t("contact.message.send")}</Button>
                 </form>
               )}
             </div>
@@ -91,23 +93,23 @@ export function Contact() {
       <section className="border-t border-black/15 px-8 py-32 md:px-16 lg:px-24">
         <FadeIn>
           <div className="grid gap-16 lg:grid-cols-[1fr_2fr]">
-            <p className="text-xs font-medium tracking-[0.3em] uppercase text-black/60">Subscribe</p>
+            <p className="text-xs font-medium tracking-[0.3em] uppercase text-black/60">{t("contact.subscribe.label")}</p>
             <div className="max-w-xl">
-              <p className="mb-8 text-base text-black/60">Stay connected with updates on events, programs, and community news.</p>
+              <p className="mb-8 text-base text-black/60">{t("contact.subscribe.intro")}</p>
               {subscribed ? (
                 <div className="flex flex-col items-center py-12 text-center">
                   <Check className="mb-4 h-10 w-10 text-black/60" />
-                  <p className="text-lg font-medium">Subscribed!</p>
-                  <p className="text-sm text-black/70">Thank you for your interest.</p>
+                  <p className="text-lg font-medium">{t("contact.subscribe.successTitle")}</p>
+                  <p className="text-sm text-black/70">{t("contact.subscribe.successText")}</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubscribe} className="space-y-6">
                   <div className="grid gap-6 sm:grid-cols-2">
-                    <div><Label htmlFor="sub-f" className="text-black/60">First Name</Label><Input id="sub-f" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
-                    <div><Label htmlFor="sub-l" className="text-black/60">Last Name</Label><Input id="sub-l" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
+                    <div><Label htmlFor="sub-f" className="text-black/60">{t("contact.subscribe.firstName")}</Label><Input id="sub-f" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
+                    <div><Label htmlFor="sub-l" className="text-black/60">{t("contact.subscribe.lastName")}</Label><Input id="sub-l" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
                   </div>
-                  <div><Label htmlFor="sub-e" className="text-black/60">Email</Label><Input id="sub-e" type="email" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
-                  <Button type="submit" size="lg" className="mt-2 w-full rounded-none border border-black bg-black text-xs font-medium tracking-widest uppercase text-white hover:bg-transparent hover:text-black transition-all duration-300">Subscribe</Button>
+                  <div><Label htmlFor="sub-e" className="text-black/60">{t("contact.subscribe.email")}</Label><Input id="sub-e" type="email" required className="mt-2 rounded-none border-black/20 bg-transparent text-black focus:border-black" /></div>
+                  <Button type="submit" size="lg" className="mt-2 w-full rounded-none border border-black bg-black text-xs font-medium tracking-widest uppercase text-white hover:bg-transparent hover:text-black transition-all duration-300">{t("contact.subscribe.button")}</Button>
                 </form>
               )}
             </div>
@@ -118,7 +120,7 @@ export function Contact() {
       <section className="border-t border-black/15 px-8 py-20 md:px-16 lg:px-24">
         <FadeIn>
           <div className="grid gap-16 lg:grid-cols-[1fr_2fr]">
-            <p className="text-xs font-medium tracking-[0.3em] uppercase text-black/60">Follow</p>
+            <p className="text-xs font-medium tracking-[0.3em] uppercase text-black/60">{t("contact.follow.label")}</p>
             <div className="flex gap-8">
               <a href="https://instagram.com/noema.ensemble" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-black/60 transition-colors duration-300 hover:text-black">
                 <InstagramIcon /> Instagram

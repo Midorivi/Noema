@@ -7,6 +7,7 @@ import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { Preloader } from "@/components/ui/preloader";
 import { PageTransition } from "@/components/ui/page-transition";
+import { LanguageProvider } from "@/lib/i18n";
 import { Home } from "@/pages/Home";
 import { WhoWeAre } from "@/pages/WhoWeAre";
 import { OurStory } from "@/pages/OurStory";
@@ -47,18 +48,20 @@ function AppRoutes() {
 
 export function App() {
   return (
-    <BrowserRouter>
-      <Preloader />
-      <ScrollProgress />
-      <ScrollToTop />
-      <div className="flex min-h-screen flex-col">
-        <Header />
-        <PageWrapper>
-          <AppRoutes />
-        </PageWrapper>
-        <Footer />
-      </div>
-      <BackToTop />
-    </BrowserRouter>
+    <LanguageProvider>
+      <BrowserRouter>
+        <Preloader />
+        <ScrollProgress />
+        <ScrollToTop />
+        <div className="flex min-h-screen flex-col">
+          <Header />
+          <PageWrapper>
+            <AppRoutes />
+          </PageWrapper>
+          <Footer />
+        </div>
+        <BackToTop />
+      </BrowserRouter>
+    </LanguageProvider>
   );
 }

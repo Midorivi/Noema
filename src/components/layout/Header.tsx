@@ -1,25 +1,58 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ChevronDown, Menu, X } from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
 
-const aboutLinks = [
-  { label: "Who We Are", to: "/who-we-are" },
-  { label: "Our Story", to: "/our-story" },
+const aboutLinkDefs = [
+  { key: "nav.whoWeAre", to: "/who-we-are" },
+  { key: "nav.ourStory", to: "/our-story" },
 ];
 
-const navLinks = [
-  { label: "Mission", to: "/mission" },
-  { label: "Events", to: "/events" },
-  { label: "Get Involved", to: "/get-involved" },
-  { label: "Contact", to: "/contact" },
+const navLinkDefs = [
+  { key: "nav.mission", to: "/mission" },
+  { key: "nav.events", to: "/events" },
+  { key: "nav.getInvolved", to: "/get-involved" },
+  { key: "nav.contact", to: "/contact" },
 ];
+
+function LanguageToggle({ className = "" }: { className?: string }) {
+  const { lang, toggleLanguage, isTransitioning, t } = useLanguage();
+
+  return (
+    <button
+      type="button"
+      onClick={toggleLanguage}
+      disabled={isTransitioning}
+      aria-label={t("nav.languageToggle")}
+      className={`group flex items-center gap-1.5 text-xs font-medium transition-opacity duration-300 disabled:opacity-50 ${className}`}
+    >
+      <span
+        className={`tracking-widest uppercase transition-colors duration-300 ${
+          lang === "en" ? "text-black" : "text-black/40 group-hover:text-black/70"
+        }`}
+      >
+        Eng
+      </span>
+      <span className="font-light text-black/25">/</span>
+      <span
+        lang="ko"
+        className={`transition-colors duration-300 ${
+          lang === "ko" ? "text-black" : "text-black/40 group-hover:text-black/70"
+        }`}
+      >
+        한국어
+      </span>
+    </button>
+  );
+}
 
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const location = useLocation();
-  const aboutActive = aboutLinks.some((l) => location.pathname === l.to);
+  const { t } = useLanguage();
+  const aboutActive = aboutLinkDefs.some((l) => location.pathname === l.to);
 
   useEffect(() => {
     setMobileOpen(false);
@@ -59,7 +92,7 @@ export function Header() {
                   aboutActive ? "text-black" : "text-black/70 hover:text-black"
                 }`}
               >
-                About Us
+                {t("nav.aboutUs")}
                 <ChevronDown
                   size={12}
                   className={`transition-transform duration-300 ${aboutOpen ? "rotate-180" : ""}`}
@@ -73,7 +106,7 @@ export function Header() {
                 }`}
               >
                 <div className="flex w-44 flex-col border border-black/15 bg-white/95 backdrop-blur-md shadow-sm">
-                  {aboutLinks.map((link) => (
+                  {aboutLinkDefs.map((link) => (
                     <Link
                       key={link.to}
                       to={link.to}
@@ -83,14 +116,14 @@ export function Header() {
                           : "text-black/60 hover:bg-black/5 hover:text-black"
                       }`}
                     >
-                      {link.label}
+                      {t(link.key)}
                     </Link>
                   ))}
                 </div>
               </div>
             </div>
 
-            {navLinks.map((link) => (
+            {navLinkDefs.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
@@ -101,24 +134,28 @@ export function Header() {
                     : "text-black/70 hover:text-black"
                 }`}
               >
-                {link.label}
+                {t(link.key)}
               </Link>
             ))}
             <Link
               to="/get-involved"
               className="ml-4 bg-black px-5 py-2 text-xs font-medium tracking-widest uppercase text-white transition-colors duration-300 hover:bg-black/80"
             >
-              Donate
+              {t("nav.donate")}
             </Link>
+            <LanguageToggle className="ml-2" />
           </nav>
 
-          <button
-            className="text-black lg:hidden"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          <div className="flex items-center gap-6 lg:hidden">
+            <LanguageToggle />
+            <button
+              className="text-black"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label={t("nav.toggleMenu")}
+            >
+              {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
       </header>
 
@@ -144,7 +181,7 @@ export function Header() {
                 aboutActive ? "text-black" : "text-black/60"
               }`}
             >
-              About Us
+              {t("nav.aboutUs")}
               <ChevronDown
                 size={20}
                 className={`transition-transform duration-300 ${mobileAboutOpen ? "rotate-180" : ""}`}
@@ -157,7 +194,7 @@ export function Header() {
             >
               <div className="overflow-hidden">
                 <div className="flex flex-col pb-5">
-                  {aboutLinks.map((link) => (
+                  {aboutLinkDefs.map((link) => (
                     <Link
                       key={link.to}
                       to={link.to}
@@ -166,14 +203,14 @@ export function Header() {
                         location.pathname === link.to ? "text-black" : "text-black/50"
                       }`}
                     >
-                      {link.label}
+                      {t(link.key)}
                     </Link>
                   ))}
                 </div>
               </div>
             </div>
           </div>
-          {navLinks.map((link, i) => (
+          {navLinkDefs.map((link, i) => (
             <Link
               key={link.to}
               to={link.to}
@@ -189,7 +226,7 @@ export function Header() {
               }`}
               style={{ transitionDelay: mobileOpen ? `${(i + 1) * 50}ms` : "0ms" }}
             >
-              {link.label}
+              {t(link.key)}
             </Link>
           ))}
         </nav>

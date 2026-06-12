@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { useLanguage } from "@/lib/i18n";
 
 function InstagramIcon() {
   return (
@@ -20,7 +21,17 @@ function YoutubeIcon() {
   );
 }
 
+const footerNavDefs = [
+  { key: "nav.whoWeAre", to: "/who-we-are" },
+  { key: "nav.ourStory", to: "/our-story" },
+  { key: "nav.mission", to: "/mission" },
+  { key: "nav.events", to: "/events" },
+  { key: "nav.getInvolved", to: "/get-involved" },
+];
+
 export function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="border-t border-black/15 bg-stone-50">
       <div className="mx-auto max-w-7xl px-8 py-20">
@@ -28,34 +39,26 @@ export function Footer() {
           <div>
             <img
               src="/noema-logo.png"
-              alt="NOEMA Ensemble"
+              alt={t("footer.logoAlt")}
               className="mb-6 h-24 w-auto"
             />
             <p className="text-sm leading-relaxed text-black/50">
-              A nonprofit arts community where professionals and non-professionals
-              come together to pursue musical excellence and serve the community
-              through music.
+              {t("footer.description")}
             </p>
           </div>
 
           <div>
             <p className="mb-6 text-xs font-semibold tracking-[0.2em] uppercase text-black/40">
-              Navigate
+              {t("footer.navigate")}
             </p>
             <nav className="flex flex-col gap-3">
-              {[
-                { label: "Who We Are", to: "/who-we-are" },
-                { label: "Our Story", to: "/our-story" },
-                { label: "Mission", to: "/mission" },
-                { label: "Events", to: "/events" },
-                { label: "Get Involved", to: "/get-involved" },
-              ].map((link) => (
+              {footerNavDefs.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
                   className="text-sm text-black/50 transition-colors duration-300 hover:text-black"
                 >
-                  {link.label}
+                  {t(link.key)}
                 </Link>
               ))}
             </nav>
@@ -63,7 +66,7 @@ export function Footer() {
 
           <div>
             <p className="mb-6 text-xs font-semibold tracking-[0.2em] uppercase text-black/40">
-              Contact
+              {t("footer.contact")}
             </p>
             <div className="flex flex-col gap-4 text-sm text-black/50">
               <a
@@ -74,7 +77,7 @@ export function Footer() {
                 noema.ensemble@gmail.com
               </a>
               <a
-                href="tel:+19176889738"
+                href="tel:+191****9738"
                 className="flex items-center gap-3 transition-colors duration-300 hover:text-black"
               >
                 <Phone size={14} className="shrink-0" />
@@ -89,7 +92,7 @@ export function Footer() {
 
           <div>
             <p className="mb-6 text-xs font-semibold tracking-[0.2em] uppercase text-black/40">
-              Follow
+              {t("footer.follow")}
             </p>
             <div className="flex gap-6">
               <a
@@ -115,7 +118,7 @@ export function Footer() {
         </div>
 
         <div className="mt-20 border-t border-black/10 pt-8 text-xs text-black/25">
-          &copy; {new Date().getFullYear()} NOEMA Ensemble. All rights reserved.
+          &copy; {new Date().getFullYear()} NOEMA Ensemble. {t("footer.rights")}
         </div>
       </div>
     </footer>

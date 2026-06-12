@@ -50,6 +50,18 @@
     scroll-behavior: smooth;
   }
 
+  /* Korean typography — applied whenever the document language is Korean. */
+  :lang(ko) body,
+  html[lang="ko"] body {
+    font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic",
+      var(--font-sans), sans-serif;
+  }
+
+  html[lang="ko"] .font-serif,
+  :lang(ko) .font-serif {
+    font-family: "Noto Serif KR", "Playfair Display", Georgia, serif;
+  }
+
   ::selection {
     background: hsl(0 0% 0%);
     color: hsl(0 0% 100%);
@@ -103,3 +115,218 @@
 .nav-link[data-active="true"]::after {
   transform: scaleX(1);
 }
+
+/* ============================================================
+   Language curtain — opera-house velvet transition
+   ============================================================ */
+
+.lang-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  overflow: hidden;
+  pointer-events: all;
+}
+
+.curtain-panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50.5%; /* slight overlap so no hairline gap at the seam */
+  background:
+    /* velvet fold highlights */
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.035) 0px,
+      rgba(255, 255, 255, 0) 26px,
+      rgba(0, 0, 0, 0.5) 56px,
+      rgba(255, 255, 255, 0) 86px
+    ),
+    linear-gradient(180deg, #0a0a0a 0%, #050505 55%, #0d0c0a 100%);
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.85);
+  will-change: transform;
+}
+
+.curtain-panel--left {
+  left: 0;
+  transform: translateX(-102%);
+}
+
+.curtain-panel--right {
+  right: 0;
+  transform: translateX(102%);
+}
+
+.lang-curtain[data-closed="true"] .curtain-panel--left {
+  animation: curtain-close-left 0.75s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.lang-curtain[data-closed="true"] .curtain-panel--right {
+  animation: curtain-close-right 0.75s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.lang-curtain[data-closed="false"] .curtain-panel--left {
+  transform: translateX(0);
+  animation: curtain-open-left 0.75s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.lang-curtain[data-closed="false"] .curtain-panel--right {
+  transform: translateX(0);
+  animation: curtain-open-right 0.75s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+@keyframes curtain-close-left {
+  from { transform: translateX(-102%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes curtain-close-right {
+  from { transform: translateX(102%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes curtain-open-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-102%); }
+}
+
+@keyframes curtain-open-right {
+  from { transform: translateX(0); }
+  to { transform: translateX(102%); }
+}
+
+/* Gold seam where the curtains meet */
+.curtain-seam {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    180deg,
+    rgba(201, 162, 39, 0) 0%,
+    rgba(201, 162, 39, 0.9) 18%,
+    #e6c558 50%,
+    rgba(201, 162, 39, 0.9) 82%,
+    rgba(201, 162, 39, 0) 100%
+  );
+  box-shadow:
+    0 0 10px rgba(201, 162, 39, 0.55),
+    0 0 26px rgba(201, 162, 39, 0.3);
+  opacity: 0;
+}
+
+.lang-curtain[data-closed="true"] .curtain-seam {
+  animation: seam-glow 0.5s ease-out 0.68s forwards;
+}
+
+.lang-curtain[data-closed="false"] .curtain-seam {
+  opacity: 1;
+  animation: seam-fade 0.3s ease-in forwards;
+}
+
+@keyframes seam-glow {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes seam-fade {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* Centered announcement — target language name, program-booklet style */
+.curtain-announce {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  opacity: 0;
+}
+
+.lang-curtain[data-closed="true"] .curtain-announce {
+  animation: announce-in 0.6s ease-out 0.72s forwards;
+}
+
+.lang-curtain[data-closed="false"] .curtain-announce {
+  opacity: 1;
+  animation: announce-out 0.28s ease-in forwards;
+}
+
+@keyframes announce-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes announce-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.curtain-word {
+  font-size: clamp(1.75rem, 4.5vw, 3rem);
+  font-weight: 400;
+  color: #f5ecd7;
+  letter-spacing: 0.4em;
+  text-indent: 0.4em; /* visually re-centres letterspaced text */
+  text-shadow: 0 0 24px rgba(201, 162, 39, 0.25);
+  white-space: nowrap;
+}
+
+.lang-curtain[data-closed="true"] .curtain-word {
+  animation: word-tracking 1s cubic-bezier(0.16, 1, 0.3, 1) 0.72s both;
+}
+
+@keyframes word-tracking {
+  from {
+    letter-spacing: 0.12em;
+    text-indent: 0.12em;
+    opacity: 0;
+  }
+  to {
+    letter-spacing: 0.4em;
+    text-indent: 0.4em;
+    opacity: 1;
+  }
+}
+
+/* Thin gold rules flanking the word — like a concert programme */
+.curtain-rule {
+  height: 1px;
+  width: clamp(2.5rem, 8vw, 6rem);
+  background: linear-gradient(90deg, rgba(201, 162, 39, 0), #c9a227);
+  transform-origin: right;
+}
+
+.curtain-rule--right {
+  background: linear-gradient(90deg, #c9a227, rgba(201, 162, 39, 0));
+  transform-origin: left;
+}
+
+.lang-curtain[data-closed="true"] .curtain-rule {
+  animation: rule-grow 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.85s both;
+}
+
+@keyframes rule-grow {
+  from { transform: scaleX(0); opacity: 0; }
+  to { transform: scaleX(1); opacity: 1; }
+}
+
+/* Reduced motion: simple white crossfade overlay */
+.lang-fade-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: white;
+  pointer-events: none;
+  animation: lang-crossfade 0.4s ease-out forwards;
+}
+
+@keyframes lang-crossfade {
+  from { opacity: 0.85; }
+  to { opacity: 0; }
+}
+
